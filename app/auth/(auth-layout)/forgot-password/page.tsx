@@ -1,5 +1,5 @@
 "use client";
-import AuthButton from '@/components/authButtons';
+import AuthButton from '@/components/buttons/auth-button';
 import { Form, Input } from 'antd';
 import React from 'react'
 

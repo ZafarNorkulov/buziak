@@ -78,3 +78,21 @@ body {
 .signup-segment.girl .ant-segmented-item-selected {
   background-color: #ff63bb !important;
 }
+
+/* Footer Icons */
+.footer-icon.active path {
+  fill: #ff63bc;
+  stroke: #ff63bc;
+}
+.footer-icon.active:nth-child(4) path:nth-child(1) {
+  fill: #ff63bc;
+  stroke: #ff63bc;
+}
+.footer-icon.active:nth-child(4) path {
+  fill: #ff63bc;
+  stroke: #0f080a;
+}
+.footer-icon.active svg {
+  fill: #ff63bc;
+  stroke: #ff63bc;
+}

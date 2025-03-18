@@ -1,5 +1,5 @@
 "use client"
-import AuthButton from '@/components/authButtons'
+import AuthButton from '@/components/buttons/auth-button'
 import { Checkbox, Form, Input } from 'antd'
 import { signIn } from 'next-auth/react'
 import Image from 'next/image'

@@ -1,9 +1,14 @@
+import Footer from "@/components/footer";
 
 
 
 export default function Home() {
   return (
-    <div>Home page</div>
+    <div>Home page
+
+
+      <Footer/>
+    </div>
 
 
   );

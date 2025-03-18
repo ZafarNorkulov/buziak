@@ -1,4 +1,4 @@
-import AuthButton from '@/components/authButtons'
+import AuthButton from '@/components/buttons/auth-button'
 import React from 'react'
 
 const SendRequestPage = () => {
