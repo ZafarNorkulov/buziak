@@ -16,7 +16,7 @@ export default function Home() {
           <span className="font-extrabold">Buziak</span> to otwarte, szczere randki bez wstydu. To miejsce, w którym możesz tworzyć (i łamać) własne zasady, spotykać się, bawić i źle zachowywać. <span className="font-extrabold">Buziak</span> pomaga uciec od przewidywalności i nudy współczesnych randek i wybrać coś bardziej ekscytującego i hedonistycznego. To miejsce, w którym wszyscy możemy odkrywać i bezpiecznie się oddawać, preferując otwarte, intrygujące połączenia oparte na wzajemnym szacunku.
         </p>
         <div className="flex flex-col gap-5 mt-5">
-          <AuthButton>Register</AuthButton>
+          <AuthButton redirect="/signup">Register</AuthButton>
           <AuthButton disabled={true}>Login</AuthButton>
         </div>
       </div>

@@ -8,7 +8,7 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import GoogleIcon from "@/assets/icons/Google.svg";
 import AppleIcon from "@/assets/icons/apple.svg";
-import { signIn, useSession } from "next-auth/react";
+import { signIn,  useSession } from "next-auth/react";
 
 const SignUp = () => {
     const [phone, setPhone] = useState("");
@@ -21,7 +21,8 @@ const SignUp = () => {
             <h1 className="auth-title">Sign Up</h1>
             <Form size="large" className="flex flex-col gap-4 !mt-5" onFinish={(e) => console.log(e)}>
                 <div className="flex flex-col gap-12">
-                    <Form.Item name="full_name">
+                    <Form.Item name="full_name"
+                        rules={[{ required: true, message: 'Пожалуйста, введите ваше полное имя!' }]}>
                         <Input placeholder="Enter full name" className="h-12" />
                     </Form.Item>
 
@@ -43,11 +44,12 @@ const SignUp = () => {
                             borderRadius: "8px",
                             backgroundColor: "#fff",
                         }}
+
                     />
-                    <Form.Item name="email">
+                    <Form.Item name="email" rules={[{ required: true, message: 'Пожалуйста, введите адрес электронной почты!' }]}>
                         <Input type="email" placeholder="Enter email address" className="h-12" />
                     </Form.Item>
-                    <Form.Item name="password">
+                    <Form.Item name="password" rules={[{ required: true, message: 'Пожалуйста, введите пароль!' }]}>
                         <Input.Password type="password" placeholder="Enter password" className="h-12" />
                     </Form.Item>
                 </div>
@@ -56,10 +58,11 @@ const SignUp = () => {
                         token: {
                             colorBgBase: "#141522",
                             colorTextBase: "#fff",
+                            controlItemBgActive: "#141522"
                         },
                     }}
                 >
-                    <Form.Item name="gender">
+                    <Form.Item name="gender" rules={[{ required: true, message: 'Пожалуйста, выберите пол!' }]}>
                         <Segmented<string>
                             size="large"
                             options={["Man", "Girl"]}
@@ -73,18 +76,17 @@ const SignUp = () => {
                         />
                     </Form.Item>
                 </ConfigProvider>
-                <Form.Item>
-                    <Checkbox className="w-full">
-                        <div className="w-full flex justify-end gap-5 text-xs leading-[140%] text-miscellaneous">
-                            <span>Term of Conditions</span>
-                            <span>Privacy Policy</span>
-                        </div>
-                    </Checkbox>
-                </Form.Item>
+                <Checkbox className="w-full" >
+                    <div className="w-full flex justify-end gap-5 text-xs leading-[140%] text-miscellaneous">
+                        <span>Term of Conditions</span>
+                        <span>Privacy Policy</span>
+                    </div>
+                </Checkbox>
 
                 <AuthButton>Register</AuthButton>
 
             </Form>
+
             <div className="flex flex-col gap-4 mt-4">
                 <div className="flex w-max mx-auto gap-9">
                     <button
