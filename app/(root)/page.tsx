@@ -18,7 +18,7 @@ import PulseIcon from "@/components/pulse-icon";
 
 export default function Home() {
   return (
-    <div className="home h-screen bg-top bg-no-repeat bg-cover pt-3" style={{ backgroundImage: `url(${bg.src})` }}>
+    <section className="home h-full bg-top bg-no-repeat bg-cover pt-3" style={{ backgroundImage: `url(${bg.src})` }}>
       <div className="max-container !px-4">
 
         <div className="flex items-center justify-between">
@@ -88,7 +88,7 @@ export default function Home() {
         </div>
       </div>
       <Footer />
-    </div>
+    </section>
 
 
   );
