@@ -107,7 +107,7 @@ body {
 
 .home .mySwiper {
   width: 320px;
-  height: 400px;
+  height: 480px;
 }
 
 .home .swiper-slide {
@@ -122,5 +122,9 @@ body {
   border-radius: 32px;
   background-color: rgba(255, 255, 255, 0.1); /* Default back side color */
 }
-
-
+.button-gradient {
+  background: linear-gradient(278.09deg, #9c4dff -14.71%, #ff40ac 139.58%);
+}
+.button-shadow {
+  box-shadow: 0px 4px 4px 0px #00000040 inset;
+}
