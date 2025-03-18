@@ -90,7 +90,6 @@ const SignUp = () => {
                 <AuthButton>Register</AuthButton>
 
             </Form>
-
             <div className="flex flex-col gap-4 mt-4">
                 <div className="flex w-max mx-auto gap-9">
                     <button
@@ -105,7 +104,7 @@ const SignUp = () => {
                 </div>
 
                 <p className="flex w-max mx-auto gap-1 text-sm text-miscellaneous leading-[140%] font-semibold">
-                    Already have an account? <Link href={"/signin"} className="text-[#006AE5]">Login</Link>
+                    Already have an account? <Link href={"/auth/signin"} className="text-[#006AE5]">Login</Link>
                 </p>
             </div>
         </section>

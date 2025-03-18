@@ -14,7 +14,7 @@ const NewPassword = () => {
             <p className='text-white font-bold opacity-90 text-xs leading-[150%] text-center'>
                 Введи новый пароль который будет вам необходим при входе на сайт
             </p>
-            <AuthButton redirect='/signin'>Новый пароль</AuthButton>
+            <AuthButton redirect='/auth/signin'>Новый пароль</AuthButton>
         </Form>
     </section>
     )

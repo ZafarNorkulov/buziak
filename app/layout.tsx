@@ -19,7 +19,6 @@ export default function RootLayout({
       <body
       >
         <ScreenCheck>
-
           {children}
         </ScreenCheck>
       </body>

@@ -33,14 +33,14 @@ const SignIn = () => {
                         {/* Formga bog'lanmagan Checkbox */}
                         <Form.Item>
 
-                        <Checkbox>Запомнить меня</Checkbox>
+                            <Checkbox>Запомнить меня</Checkbox>
                         </Form.Item>
 
                         <AuthButton>Login</AuthButton>
-                        <Link href="/forgot-password" className='text-primary w-max mx-auto text-sm leading-[140%] font-semibold'> Проблемы со входом?</Link>
+                        <Link href="/auth/forgot-password" className='text-primary w-max mx-auto text-sm leading-[140%] font-semibold'> Проблемы со входом?</Link>
                     </Form>
                 </div>
-                
+
                 <div className="flex flex-col gap-6 ">
                     <div className="flex w-max mx-auto gap-9">
                         <button
@@ -57,7 +57,7 @@ const SignIn = () => {
                     </div>
 
                     <p className="flex w-max mx-auto gap-1 text-sm text-miscellaneous leading-[140%] font-semibold">
-                        Nie masz konta?  <Link href={"/signup"} className="text-[#006AE5]">Sing Up</Link>
+                        Nie masz konta?  <Link href={"/auth/signup"} className="text-[#006AE5]">Sing Up</Link>
                     </p>
                 </div>
             </div>

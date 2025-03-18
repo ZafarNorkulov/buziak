@@ -11,7 +11,7 @@ const SendRequestPage = () => {
                     </p>
                     <p >Мы отправили ссылку на testmail@gmail.com, чтобы помочь вам снова войти в аккаунт. Проверьте почту и следуйте инструкциям.</p>
                 </div>
-                <AuthButton redirect='/forgot-password/new-password'>Login</AuthButton>
+                <AuthButton redirect='/auth/forgot-password/new-password'>Login</AuthButton>
             </div>
         </section>
     )

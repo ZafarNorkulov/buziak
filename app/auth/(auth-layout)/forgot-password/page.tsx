@@ -16,7 +16,7 @@ const ForgotPassword = () => {
                     Введите email, связанный с вашим аккаунтом.<br />
                     Мы отправим вам ссылку для входа.
                 </p>
-                <AuthButton redirect='/forgot-password/send-request'>Send email</AuthButton>
+                <AuthButton redirect='/auth/forgot-password/send-request'>Send email</AuthButton>
             </Form>
         </section>
     )
