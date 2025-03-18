@@ -31,7 +31,10 @@ const SignIn = () => {
                         </Form.Item>
 
                         {/* Formga bog'lanmagan Checkbox */}
+                        <Form.Item>
+
                         <Checkbox>Запомнить меня</Checkbox>
+                        </Form.Item>
 
                         <AuthButton>Login</AuthButton>
                         <Link href="/forgot-password" className='text-primary w-max mx-auto text-sm leading-[140%] font-semibold'> Проблемы со входом?</Link>

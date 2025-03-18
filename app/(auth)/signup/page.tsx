@@ -8,7 +8,7 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import GoogleIcon from "@/assets/icons/Google.svg";
 import AppleIcon from "@/assets/icons/apple.svg";
-import { signIn,  useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 
 const SignUp = () => {
     const [phone, setPhone] = useState("");
@@ -76,12 +76,16 @@ const SignUp = () => {
                         />
                     </Form.Item>
                 </ConfigProvider>
-                <Checkbox className="w-full" >
-                    <div className="w-full flex justify-end gap-5 text-xs leading-[140%] text-miscellaneous">
-                        <span>Term of Conditions</span>
-                        <span>Privacy Policy</span>
-                    </div>
-                </Checkbox>
+                <Form.Item>
+
+                    <Checkbox className="w-full" >
+                        <span className="w-full flex justify-end gap-5 text-xs leading-[140%] text-miscellaneous">
+                            <span>Term of Conditions</span>
+                            <span>Privacy Policy</span>
+                        </span>
+                    </Checkbox>
+
+                </Form.Item>
 
                 <AuthButton>Register</AuthButton>
 
