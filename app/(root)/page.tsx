@@ -19,7 +19,7 @@ import GradientButton from "@/components/buttons/gradient-button";
 
 export default function Home() {
   return (
-    <section className="home h-[calc(100vh-88px)] bg-top bg-no-repeat bg-cover pt-3" style={{ backgroundImage: `url(${bg.src})` }}>
+    <section className="home min-h-[calc(100vh-88px)] bg-top bg-no-repeat bg-cover pt-3" style={{ backgroundImage: `url(${bg.src})` }}>
       <div className="max-container !px-4">
 
         <div className="flex items-center justify-between">

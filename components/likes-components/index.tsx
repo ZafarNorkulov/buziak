@@ -18,7 +18,6 @@ const LikedUsers = ({ data }: { data: ILikedUsersProps[] }) => {
     };
 
     const getMarginTop = (index: number) => {
-        // 1-chi va har 5-chi (index 0,4,8,12...) margin 0
         if (index === 0 || index % 4 === 0) return 0;
         return getHeight(index) === 239 ? -57 : 0;
     };
