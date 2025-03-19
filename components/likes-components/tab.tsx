@@ -1,11 +1,11 @@
-"use client"
-import { useState } from 'react';
 
-export default function LikesTab() {
-    const [activeTab, setActiveTab] = useState('tab1');
+import { ReactNode } from 'react';
+
+export default function LikesTab({ children, activeTab, setActiveTab }: { children: ReactNode, activeTab: string, setActiveTab: (tab: string) => void }) {
+
 
     return (
-        <div className="w-full max-w-md mx-auto">
+        <div className="w-full mx-auto">
             {/* Tabs */}
             <div className="flex w-full justify-center gap-1.5 ">
                 <button
@@ -23,18 +23,13 @@ export default function LikesTab() {
             </div>
 
             {/* Tab Content */}
-            <div className="p-5 bg-gray-800 mt-9">
-                {/* Tab 1 Content */}
-                <div className={`${activeTab === 'tab1' ? '' : 'hidden'}`}>
-                    <p className="text-white">Tab 1 Text 1</p>
-                    <p className="text-white">Tab 1 Text 2</p>
+            <div className=" mt-9">
+                {/* Tab Content */}
+                <div >
+                    {children}
                 </div>
 
-                {/* Tab 2 Content */}
-                <div className={`${activeTab === 'tab2' ? '' : 'hidden'}`}>
-                    <p className="text-white">Tab 2 Text 1</p>
-                    <p className="text-white">Tab 2 Text 2</p>
-                </div>
+
             </div>
         </div>
     );

@@ -1,17 +1,15 @@
-import Footer from '@/components/footer'
-import React from 'react'
+import Footer from '@/components/footer';
+import React from 'react';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
-    return (
-        <div>
+  return (
+    <div className="min-h-screen flex flex-col relative">
+      <main className="flex-1 pb-[88px]">
+        {children}
+      </main>
+      <Footer />
+    </div>
+  );
+};
 
-            <div className='h-screen '>
-
-                {children}
-            </div>
-            <Footer />
-        </div>
-    )
-}
-
-export default Layout
+export default Layout;

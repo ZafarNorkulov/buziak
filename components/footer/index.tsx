@@ -8,7 +8,7 @@ const Footer = () => {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
     const pathname = usePathname()
     return (
-        <footer className='h-[88px] fixed bottom-0 left-0 right-0 bg-[#0F0307] flex justify-between items-center'>
+        <footer className='h-[88px] fixed bottom-0 left-0 right-0 bg-[#0F0307] flex justify-between items-center z-[999]'>
             {footerIcons.map((icon, idx) => (
                 <div
                     key={idx}

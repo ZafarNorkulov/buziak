@@ -15,10 +15,11 @@ import 'swiper/css';
 import 'swiper/css/effect-cards';
 import { EffectCards } from "swiper/modules";
 import PulseIcon from "@/components/pulse-icon";
+import GradientButton from "@/components/buttons/gradient-button";
 
 export default function Home() {
   return (
-    <section className="home h-full bg-top bg-no-repeat bg-cover pt-3" style={{ backgroundImage: `url(${bg.src})` }}>
+    <section className="home h-[calc(100vh-88px)] bg-top bg-no-repeat bg-cover pt-3" style={{ backgroundImage: `url(${bg.src})` }}>
       <div className="max-container !px-4">
 
         <div className="flex items-center justify-between">
@@ -55,9 +56,9 @@ export default function Home() {
             </div>
             <div className="absolute h-1/2  w-[342px] flex flex-col justify-center gap-2 px-[19px]  translate-x-1 bottom-0 user-content z-20 rounded-4xl text-white">
               <span className="text-xs tracking-[1px] text-[#BABABA]">Warszawa</span>
-              <button className="max-w-[95px] h-[26px] p-2 rounded-4xl flex items-center gap-1 button-gradient button-shadow font-bold text-[#F1EAEF] font-jakarta text-[8px] leading-[120%] align-middle">
-                <Image src={weddingRingFill} width={11} height={10} alt="" />
-                Bez  zobowiązań</button>
+              <GradientButton shadow icon={weddingRingFill}>
+                Bez  zobowiązań
+              </GradientButton>
               <div className="flex gap-2 items-end">
                 <h2 className="text-2xl font-medium leading-[120%] font-jakarta">Mateusz, 25</h2>
                 <Image src={galochka} width={25} height={25} alt="" />
