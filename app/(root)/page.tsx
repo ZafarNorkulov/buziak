@@ -55,7 +55,7 @@ export default function Home() {
               <Image src={user} className="object-cover" alt="" />
             </div>
             <div className="absolute h-1/2  w-[342px] flex flex-col justify-center gap-2 px-[19px]  translate-x-1 bottom-0 user-content z-20 rounded-4xl text-white">
-              <span className="text-xs tracking-[1px] text-[#BABABA]">Warszawa</span>
+              <span className="text-xs tracking-[1px] text-gray">Warszawa</span>
               <GradientButton shadow icon={weddingRingFill}>
                 Bez  zobowiązań
               </GradientButton>
@@ -63,7 +63,7 @@ export default function Home() {
                 <h2 className="text-2xl font-medium leading-[120%] font-jakarta">Mateusz, 25</h2>
                 <Image src={galochka} width={25} height={25} alt="" />
               </div>
-              <p className="text-sm leading-[120%] font-jakarta tracking-[0] text-white/70">Charyzmatyczny, pewny siebie i uwielbiający flirt. Jeśli lubisz napięcie i nutkę tajemnicy – pisz śmiało.</p>
+              <p className="text-sm leading-[120%] font-jakarta tracking-[0] text-white70">Charyzmatyczny, pewny siebie i uwielbiający flirt. Jeśli lubisz napięcie i nutkę tajemnicy – pisz śmiało.</p>
             </div>
 
           </SwiperSlide>

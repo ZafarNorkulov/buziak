@@ -16,7 +16,7 @@ const Footer = () => {
                     onClick={() => setActiveIndex(idx)}
                 >
                     <Link href={icon.location}>
-                    {icon.svg}
+                        {icon.svg}
                     </Link>
                 </div>
             ))}
@@ -79,7 +79,7 @@ export const footerIcons: IFooterIconProps[] = [
         </svg>
 
         ,
-        location: "",
+        location: "/chat",
         alt: "Messages"
     },
     {

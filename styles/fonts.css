@@ -40,47 +40,21 @@
     format("woff2");
 }
 
-/* urbanist-regular - latin */
+/* urbanist */
+
 @font-face {
   font-display: swap;
   font-family: "Urbanist";
   font-style: normal;
   font-weight: 400;
-  src: url("../assets/fonts/urbanist-v15-latin/urbanist-v15-latin-regular.woff2")
-    format("woff2");
+  src: url("../assets/fonts/Urbanist/static/Urbanist-Regular.ttf") format("ttf");
 }
 @font-face {
   font-display: swap;
   font-family: "Urbanist";
   font-style: normal;
   font-weight: 500;
-  src: url("../assets/fonts/urbanist-v15-latin/urbanist-v15-latin-500.woff2")
-    format("woff2");
-}
-
-@font-face {
-  font-display: swap;
-  font-family: "Urbanist";
-  font-style: normal;
-  font-weight: 600;
-  src: url("../assets/fonts/urbanist-v15-latin/urbanist-v15-latin-600.woff2")
-    format("woff2");
-}
-@font-face {
-  font-display: swap;
-  font-family: "Urbanist";
-  font-style: normal;
-  font-weight: 700;
-  src: url("../assets/fonts/urbanist-v15-latin/urbanist-v15-latin-700.woff2")
-    format("woff2");
-}
-@font-face {
-  font-display: swap;
-  font-family: "Urbanist";
-  font-style: normal;
-  font-weight: 800;
-  src: url("../assets/fonts/urbanist-v15-latin/urbanist-v15-latin-800.woff2")
-    format("woff2");
+  src: url("../assets/fonts/Urbanist/static/Urbanist-Medium.ttf") format("ttf");
 }
 
 /* rubik-mono-one-regular - latin */
@@ -95,42 +69,32 @@
 
 /* plus-jakarta-sans-regular - latin */
 @font-face {
-  font-display: swap;
   font-family: "Plus Jakarta Sans";
-  font-style: normal;
   font-weight: 400;
-  src: url("../assets/fonts/plus-jakarta-sans-v8-latin/plus-jakarta-sans-v8-latin-regular.woff2")
-    format("woff2");
+  src: url("../assets/fonts/Plus_Jakarta_Sans/static/PlusJakartaSans-Regular.ttf")
+    format("ttf");
 }
 @font-face {
-  font-display: swap;
   font-family: "Plus Jakarta Sans";
-  font-style: normal;
   font-weight: 500;
-  src: url("../assets/fonts/plus-jakarta-sans-v8-latin/plus-jakarta-sans-v8-latin-500.woff2")
-    format("woff2");
+  src: url("../assets/fonts/Plus_Jakarta_Sans/static/PlusJakartaSans-Medium.ttf")
+    format("ttf");
 }
 @font-face {
-  font-display: swap;
   font-family: "Plus Jakarta Sans";
-  font-style: normal;
   font-weight: 600;
-  src: url("../assets/fonts/plus-jakarta-sans-v8-latin/plus-jakarta-sans-v8-latin-600.woff2")
-    format("woff2");
+  src: url("../assets/fonts/Plus_Jakarta_Sans/static/PlusJakartaSans-Bold.ttf")
+    format("ttf");
 }
 @font-face {
-  font-display: swap;
   font-family: "Plus Jakarta Sans";
-  font-style: normal;
   font-weight: 700;
-  src: url("../assets/fonts/plus-jakarta-sans-v8-latin/plus-jakarta-sans-v8-latin-700.woff2")
-    format("woff2");
+  src: url("../assets/fonts/Plus_Jakarta_Sans/static/PlusJakartaSans-Bold.ttf")
+    format("ttf");
 }
 @font-face {
-  font-display: swap;
   font-family: "Plus Jakarta Sans";
-  font-style: normal;
   font-weight: 800;
-  src: url("../assets/fonts/plus-jakarta-sans-v8-latin/plus-jakarta-sans-v8-latin-800.woff2")
-    format("woff2");
+  src: url("../assets/fonts/Plus_Jakarta_Sans/static/PlusJakartaSans-ExtraBold.ttf")
+    format("ttf");
 }
