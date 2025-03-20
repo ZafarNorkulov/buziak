@@ -15,7 +15,6 @@ const LikesPage = () => {
         { id: 4, title: 'Card 4', img: user },
         { id: 5, title: 'Card 5', img: user },
         { id: 6, title: 'Card 6', img: user },
-        { id: 7, title: 'Card 7', img: user },
     ];
     return (
         <section

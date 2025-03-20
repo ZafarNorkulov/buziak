@@ -128,3 +128,22 @@ body {
 .button-shadow {
   box-shadow: 0px 4px 4px 0px #00000040 inset;
 }
+
+/* LikedUserbyid */
+
+.liked-user-id .swiper-button-next {
+  display: none;
+}
+
+.liked-user-id .swiper-pagination {
+  top: 10px !important;
+  bottom: auto !important;
+}
+.liked-user-id .swiper-pagination-bullet {
+  width: 7px;
+  height: 7px;
+  background: #675b78;
+}
+.liked-user-id .swiper-pagination-bullet-active {
+  background: #ff63bb;
+}

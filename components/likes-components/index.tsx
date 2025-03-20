@@ -30,6 +30,7 @@ const LikedUsers = ({ data }: { data: ILikedUsersProps[] }) => {
                     <LikedCard
                         key={item.id}
                         img={item.img}
+                        url={"/likes/1"}
                         style={{
                             height: `${getHeight(index)}px`,
                             marginTop: `${getMarginTop(index)}px`

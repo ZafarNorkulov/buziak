@@ -3,16 +3,18 @@ import GradientButton from '@/components/buttons/gradient-button';
 import Image, { StaticImageData } from 'next/image';
 import HeartIcon from "@/assets/icons/heart.svg"
 import galochka from "@/assets/icons/galochka.svg"
+import Link from 'next/link';
 
 
 interface LikedCardProps {
     style: React.CSSProperties;
     img: StaticImageData;
+    url: string
 }
 
-const LikedCard: React.FC<LikedCardProps> = ({ style, img    }) => {
+const LikedCard: React.FC<LikedCardProps> = ({ style, img, url }) => {
     return (
-        <div className='w-[calc(50%-5px)] relative mb-4 rounded-4xl overflow-hidden' style={style}>
+        <Link href={url} className='w-[calc(50%-5px)] relative mb-4 rounded-4xl overflow-hidden' style={style}>
             <Image src={img} className='w-full h-full object-cover' alt='' />
 
 
@@ -36,7 +38,7 @@ const LikedCard: React.FC<LikedCardProps> = ({ style, img    }) => {
 
 
 
-        </div>
+        </Link>
     )
 }
 
