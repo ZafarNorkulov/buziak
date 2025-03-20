@@ -4,7 +4,7 @@ import bg from "@/assets/images/messages-screen-bg.png";
 import Image from "next/image";
 import Bell from "@/assets/icons/bell.svg"
 import user from "@/assets/images/user.png"
-import galochka from "@/assets/icons/galochka.svg"
+import galochka from "@/assets/icons/register-man.svg"
 import xIcon from "@/assets/icons/xicon.svg"
 import thunder from "@/assets/icons/thunder.svg"
 import heart from "@/assets/icons/heart-home.svg"
@@ -20,7 +20,7 @@ import GradientButton from "@/components/buttons/gradient-button";
 export default function Home() {
   return (
     <section className="home min-h-[calc(100vh-88px)] bg-top bg-no-repeat bg-cover pt-3" style={{ backgroundImage: `url(${bg.src})` }}>
-      <div className="max-container !px-4">
+      <div className="max-container">
 
         <div className="flex items-center justify-between">
 

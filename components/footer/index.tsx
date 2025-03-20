@@ -1,21 +1,19 @@
 "use client";
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode } from 'react';
 
 
 const Footer = () => {
-    const [activeIndex, setActiveIndex] = useState<number | null>(null);
     const pathname = usePathname()
     return (
         <footer className='h-[88px] fixed bottom-0 left-0 right-0 bg-[#0F0307] flex justify-between items-center z-[999]'>
             {footerIcons.map((icon, idx) => (
                 <div
                     key={idx}
-                    className={`flex-1 h-full flex items-center justify-center cursor-pointer footer-icon ${activeIndex === idx || pathname === icon.location ? "active" : ""}`}
-                    onClick={() => setActiveIndex(idx)}
+                    className={`flex-1 h-full flex items-center justify-center cursor-pointer footer-icon ${pathname === icon.location || pathname.startsWith(`/${icon.location}`) ? "active" : ""}`}
                 >
-                    <Link href={icon.location}>
+                    <Link href={`${icon.location}`}>
                         {icon.svg}
                     </Link>
                 </div>
@@ -49,7 +47,7 @@ export const footerIcons: IFooterIconProps[] = [
             <path d="M16.037 0.101562C14.1365 0.101562 12.4355 1.02556 11.375 2.44306C10.3145 1.02556 8.6135 0.101562 6.713 0.101562C3.4895 0.101562 0.875 2.72656 0.875 5.97106C0.875 7.22056 1.0745 8.37556 1.421 9.44656C3.08 14.6966 8.1935 17.8361 10.724 18.6971C11.081 18.8231 11.669 18.8231 12.026 18.6971C14.5565 17.8361 19.67 14.6966 21.329 9.44656C21.6755 8.37556 21.875 7.22056 21.875 5.97106C21.875 2.72656 19.2605 0.101562 16.037 0.101562Z" fill="#675B78" />
         </svg>
         ,
-        location: "/likes",
+        location: "likes",
         alt: "Heart"
     },
     {
@@ -64,7 +62,7 @@ export const footerIcons: IFooterIconProps[] = [
             <path d="M20.5 12H15.5C15.224 12 15 12.224 15 12.5C15 12.776 15.224 13 15.5 13H20.5C20.776 13 21 12.776 21 12.5C21 12.224 20.776 12 20.5 12Z" fill="#675B78" />
         </svg>
         ,
-        location: "",
+        location: "/posts",
         alt: "Posts"
     },
     {
@@ -79,7 +77,7 @@ export const footerIcons: IFooterIconProps[] = [
         </svg>
 
         ,
-        location: "/chat",
+        location: "chat",
         alt: "Messages"
     },
     {
@@ -88,7 +86,7 @@ export const footerIcons: IFooterIconProps[] = [
             <path d="M7.785 14.56C5.365 16.18 5.365 18.82 7.785 20.43C10.535 22.27 15.045 22.27 17.795 20.43C20.215 18.81 20.215 16.17 17.795 14.56C15.055 12.73 10.545 12.73 7.785 14.56Z" fill="#675B78" />
         </svg>
         ,
-        location: "",
+        location: "/profile",
         alt: "profile"
     },
 ]

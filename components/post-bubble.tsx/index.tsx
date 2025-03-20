@@ -1,12 +1,13 @@
 import React from 'react'
 import moreIcon from "@/assets/icons/more.svg"
 import Image from 'next/image'
-import galochka from "@/assets/icons/galochka.svg"
+import galochka from "@/assets/icons/register-man.svg"
 import likeHand from "@/assets/icons/like-hand.svg"
 import chatIconPink from "@/assets/icons/chaticon-purple.svg"
-import { Dropdown, MenuProps } from 'antd'
+import { MenuProps } from 'antd'
 import menuTrash from "@/assets/icons/menu-trash.svg"
 import Link from 'next/link'
+import BeatifulDropDown from '../dropdown'
 
 
 const PostBubble = () => {
@@ -47,10 +48,9 @@ const PostBubble = () => {
 
                     </div>
                     <div className='mt-1.5'>
-                        <Dropdown menu={{ items }} placement='bottomRight' trigger={['click']} overlayClassName='!min-w-[165px] post-bubble-dropdown'>
-
+                        <BeatifulDropDown items={items}>
                             <Image src={moreIcon} width={20} height={4} alt='more' />
-                        </Dropdown>
+                        </BeatifulDropDown>
                     </div>
                 </div>
 

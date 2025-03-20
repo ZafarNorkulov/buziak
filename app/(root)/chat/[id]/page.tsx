@@ -1,0 +1,110 @@
+import React from 'react'
+import noImage from "@/assets/images/noImage.png"
+import Image from 'next/image'
+import { MenuProps } from 'antd'
+import BeatifulDropDown from '@/components/dropdown'
+// Import icons
+import registGirlIcon from "@/assets/icons/register-girl.svg"
+import moreIcon from "@/assets/icons/more.svg"
+import menuTrash from "@/assets/icons/menu-trash.svg"
+import blockIcon from "@/assets/icons/block.svg"
+import fileIcon from "@/assets/icons/file.svg"
+import micIcon from "@/assets/icons/mic.svg"
+import ChatBubble from '@/components/chatBubble'
+import user from "@/assets/images/chat-user.png"
+
+const ChatById = () => {
+    const items: MenuProps['items'] = [
+        {
+            key: '1',
+            label: (
+                <div className='flex items-center gap-3 '>
+                    <Image src={blockIcon} width={24} height={24} alt='like' />
+                    <span className='text-sm font-semibold leading-6 align-middle text-white font-urbanist'>
+
+                        Block Alisa
+                    </span>
+                </div>
+            ),
+        },
+        {
+            key: '2',
+            label: (
+                <div className='flex items-center gap-3 '>
+                    <Image src={menuTrash} width={24} height={24} alt='like' />
+                    <span className='text-sm font-bold leading-6 align-middle text-red font-urbanist'>
+
+                        Unmatch
+                    </span>
+                </div>
+            ),
+        },
+
+    ];
+
+
+    return (
+        <section
+            className="h-full "
+        >
+            <div className="max-container relative">
+                {/* header */}
+                <div className='fixed  top-5 left-4 right-4 flex gap-4 items-center'>
+
+                    <div className='w-[50px] h-[50px] rounded-full overflow-hidden'>
+                        <Image src={noImage} className='w-full h-full ' alt='avatar' />
+                    </div>
+                    <div className='flex justify-between w-[calc(100%-60px)]'>
+                        <div className='flex flex-col gap-1'>
+                            <div className='flex items-end gap-1'>
+                                <h2 className='text-sm leading-[100%] tracking-[0]'>Alisa Purpleson</h2>
+                                <Image src={registGirlIcon} width={15} height={15} alt='' />
+                            </div>
+
+                            <span className=' text-xs tracking-[1px] leading-[100%] text-gray'>Warszawa</span>
+                        </div>
+                        <BeatifulDropDown items={items} >
+
+                            <Image src={moreIcon} width={20} height={4} alt='more' />
+                        </BeatifulDropDown>
+                    </div>
+                </div>
+
+                {/* Body */}
+
+                <div className='absolute top-[50px] left-0 right-0 bottom-[138px] flex flex-col gap-2 w-full h-[calc(100vh-220px)] py-5 px-[10px] overflow-y-auto chat-scroll'>
+                    <ChatBubble sendTime='19:44' message='Hi, Good moring, Dr Anastasya' is_read={true} senderType='sender' />
+                    <ChatBubble sendTime='19:44' message={user} is_read={true} senderType='receiver' />
+                    <ChatBubble sendTime='19:44' message='I have problems with my hands, which have been hurting lately.' is_read={true} senderType='receiver' />
+
+                    <ChatBubble sendTime='19:44' message='Hello' is_read={true} senderType='receiver' />
+                    <ChatBubble sendTime='19:44' message='Hello' is_read={true} senderType='receiver' />
+                    <ChatBubble sendTime='19:44' message='Hello' is_read={true} senderType='receiver' />
+                    <ChatBubble sendTime='19:44' message='Hi, Good moring, Dr Anastasya' is_read={true} senderType='sender' />
+                    <ChatBubble sendTime='19:44' message='Hi, Good moring, Dr Anastasya' is_read={true} senderType='sender' />
+                    <ChatBubble sendTime='19:44' message='Hello' is_read={true} senderType='receiver' />
+                    <ChatBubble sendTime='19:44' message='Hello' is_read={true} senderType='receiver' />
+                    <ChatBubble sendTime='19:44' message='Hello' is_read={true} senderType='receiver' />
+                </div>
+
+
+                {/* Footer */}
+
+                <div className='fixed bottom-[88px] left-1.5 right-5 flex items-center'>
+                    <label htmlFor='file' className='w-[50px] h-[50px]  flex items-center justify-center rounded-xl bg-darkgray '>
+                        <input type="file" id='file' className='hidden' />
+                        <Image src={fileIcon} width={20} height={20} alt='' />
+                    </label>
+                    <div className='ml-2 w-[calc(100%-90px)] '>
+                        <input type="text" className='w-full  h-[50px] rounded-[10px] bg-darkgray px-4 !outline-0 !border-0  placeholder:text-white' placeholder='Type a message...' />
+                    </div>
+                    <div className='w-10 h-10 flex items-center justify-center ml-4 bg-[#9D3670] rounded-full'>
+                        <Image src={micIcon} width={22} height={32} alt='' />
+                    </div>
+                </div>
+            </div>
+        </section>
+    )
+}
+
+export default ChatById

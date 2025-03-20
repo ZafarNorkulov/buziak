@@ -3,7 +3,7 @@ import Image, { StaticImageData } from 'next/image'
 import GradientButton from '@/components/buttons/gradient-button'
 import HeratIcon from "@/assets/icons/heart.svg"
 import Likeicon from "@/assets/icons/heart-home.svg"
-import galochka from "@/assets/icons/galochka.svg"
+import galochka from "@/assets/icons/register-man.svg"
 import chatIcon2 from "@/assets/icons/chaticon-2.svg"
 import iconBg from "@/assets/images/icon-bg.png"
 

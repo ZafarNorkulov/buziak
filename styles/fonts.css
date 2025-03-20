@@ -46,6 +46,13 @@
   font-display: swap;
   font-family: "Urbanist";
   font-style: normal;
+  font-weight: 300;
+  src: url("../assets/fonts/Urbanist/static/Urbanist-Light.ttf") format("ttf");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Urbanist";
+  font-style: normal;
   font-weight: 400;
   src: url("../assets/fonts/Urbanist/static/Urbanist-Regular.ttf") format("ttf");
 }
