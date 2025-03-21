@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import noImage from "@/assets/images/noImage.png"
 import Image from 'next/image'
@@ -12,25 +13,28 @@ import fileIcon from "@/assets/icons/file.svg"
 import micIcon from "@/assets/icons/mic.svg"
 import ChatBubble from '@/components/chatBubble'
 import user from "@/assets/images/chat-user.png"
+import ConfirmModal from '@/components/modal/confirmModal'
 
 const ChatById = () => {
+    const [isOpenModal, setIsOpenModal] = React.useState(false)
+    const [isOpenModal2, setIsOpenModal2] = React.useState(false)
     const items: MenuProps['items'] = [
         {
             key: '1',
             label: (
-                <div className='flex items-center gap-3 '>
+                <div className='flex items-center gap-3 ' onClick={() => setIsOpenModal2(true)}>
                     <Image src={blockIcon} width={24} height={24} alt='like' />
                     <span className='text-sm font-semibold leading-6 align-middle text-white font-urbanist'>
-
                         Block Alisa
                     </span>
+
                 </div>
             ),
         },
         {
             key: '2',
             label: (
-                <div className='flex items-center gap-3 '>
+                <div className='flex items-center gap-3 ' onClick={() => setIsOpenModal(true)}>
                     <Image src={menuTrash} width={24} height={24} alt='like' />
                     <span className='text-sm font-bold leading-6 align-middle text-red font-urbanist'>
 
@@ -64,7 +68,6 @@ const ChatById = () => {
                             <span className=' text-xs tracking-[1px] leading-[100%] text-gray'>Warszawa</span>
                         </div>
                         <BeatifulDropDown items={items} >
-
                             <Image src={moreIcon} width={20} height={4} alt='more' />
                         </BeatifulDropDown>
                     </div>
@@ -87,7 +90,6 @@ const ChatById = () => {
                     <ChatBubble sendTime='19:44' message='Hello' is_read={true} senderType='receiver' />
                 </div>
 
-
                 {/* Footer */}
 
                 <div className='fixed bottom-[88px] left-1.5 right-5 flex items-center'>
@@ -103,6 +105,8 @@ const ChatById = () => {
                     </div>
                 </div>
             </div>
+            <ConfirmModal title="Czy chcesz usunąć ten metch?" desc=" Tego nie będzie można cofnąć." buttonText="Tak, usun" buttonClick={() => setIsOpenModal(false)} open={isOpenModal} setOpen={setIsOpenModal} />
+            <ConfirmModal title="Zablokować użytkownika Alice?" desc=" Tego nie będzie można cofnąć." buttonText="Tak, zablokuj" buttonClick={() => setIsOpenModal2(false)} open={isOpenModal2} setOpen={setIsOpenModal2} />
         </section>
     )
 }
