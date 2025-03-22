@@ -6,7 +6,7 @@ body {
   background: var(--background);
   color: #fff;
   font-family: "Poppins";
-  width: 100vw;
+  /* width: 100vw; */
   scrollbar-width: 0;
 }
 /* Scroll styles */
