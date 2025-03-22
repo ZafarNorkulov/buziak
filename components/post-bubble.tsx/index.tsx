@@ -7,7 +7,7 @@ import chatIconPink from "@/assets/icons/chaticon-purple.svg"
 import { MenuProps } from 'antd'
 import menuTrash from "@/assets/icons/menu-trash.svg"
 import Link from 'next/link'
-import BeatifulDropDown from '../dropdown'
+import BeatifulDropDown from '../custom-components/beautifulDropDown'
 
 
 const PostBubble = () => {

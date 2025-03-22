@@ -3,7 +3,7 @@ import React from 'react'
 import noImage from "@/assets/images/noImage.png"
 import Image from 'next/image'
 import { MenuProps } from 'antd'
-import BeatifulDropDown from '@/components/dropdown'
+import BeatifulDropDown from '@/components/custom-components/beautifulDropDown'
 // Import icons
 import registGirlIcon from "@/assets/icons/register-girl.svg"
 import moreIcon from "@/assets/icons/more.svg"
@@ -13,7 +13,7 @@ import fileIcon from "@/assets/icons/file.svg"
 import micIcon from "@/assets/icons/mic.svg"
 import ChatBubble from '@/components/chatBubble'
 import user from "@/assets/images/chat-user.png"
-import ConfirmModal from '@/components/modal/confirmModal'
+import ConfirmModal from '@/components/custom-components/modal/confirmModal'
 
 const ChatById = () => {
     const [isOpenModal, setIsOpenModal] = React.useState(false)

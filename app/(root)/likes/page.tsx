@@ -1,9 +1,9 @@
 "use client"
 import React, { useState } from 'react'
 import sectionBg from "@/assets/images/section-screen.png";
-import LikesTab from '@/components/likes-components/tab';
 import LikedUsers from '@/components/likes-components';
 import user from "@/assets/images/user.png"
+import BeauitifulTab from '@/components/custom-components/beautifulTab';
 
 
 const LikesPage = () => {
@@ -22,9 +22,9 @@ const LikesPage = () => {
             style={{ backgroundImage: `url(${sectionBg.src})` }}
         >
             <div className="max-container">
-                <LikesTab activeTab={activeTab} setActiveTab={setActiveTab}>
+                <BeauitifulTab activeTab={activeTab} setActiveTab={setActiveTab}>
                     {activeTab === "tab1" ? <LikedUsers data={data} /> : <LikedUsers data={data} />}
-                </LikesTab>
+                </BeauitifulTab>
             </div>
         </section>
 

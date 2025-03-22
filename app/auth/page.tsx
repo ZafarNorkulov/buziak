@@ -1,5 +1,5 @@
 import React from 'react'
-import AuthButton from '@/components/buttons/auth-button'
+import AuthButton from '@/components/custom-components/buttons/auth-button'
 import Image from 'next/image'
 import bg from "@/assets/images/messages-screen-bg.png";
 import logo from "@/public/buziak.png"

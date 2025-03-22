@@ -1,5 +1,4 @@
 "use client"
-import Footer from "@/components/footer";
 import bg from "@/assets/images/messages-screen-bg.png";
 import Image from "next/image";
 import Bell from "@/assets/icons/bell.svg"
@@ -14,8 +13,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-cards';
 import { EffectCards } from "swiper/modules";
-import PulseIcon from "@/components/pulse-icon";
-import GradientButton from "@/components/buttons/gradient-button";
+import PulseIcon from "@/components/custom-components/pulseIcon";
+import GradientButton from "@/components/custom-components/buttons/gradient-button";
+import Footer from "@/components/footer";
 
 export default function Home() {
   return (

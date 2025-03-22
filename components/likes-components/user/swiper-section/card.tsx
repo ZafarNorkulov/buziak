@@ -1,6 +1,6 @@
 import React from 'react'
 import Image, { StaticImageData } from 'next/image'
-import GradientButton from '@/components/buttons/gradient-button'
+import GradientButton from '@/components/custom-components/buttons/gradient-button'
 import HeratIcon from "@/assets/icons/heart.svg"
 import Likeicon from "@/assets/icons/heart-home.svg"
 import galochka from "@/assets/icons/register-man.svg"

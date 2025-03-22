@@ -1,5 +1,5 @@
 "use client";
-import AuthButton from "@/components/buttons/auth-button";
+import AuthButton from "@/components/custom-components/buttons/auth-button";
 import { Checkbox, ConfigProvider, Form, Input, Segmented } from "antd";
 import Image from "next/image";
 import Link from "next/link";

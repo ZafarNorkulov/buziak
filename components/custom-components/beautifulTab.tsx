@@ -1,7 +1,7 @@
 
 import { ReactNode } from 'react';
 
-export default function LikesTab({ children, activeTab, setActiveTab }: { children: ReactNode, activeTab: string, setActiveTab: (tab: string) => void }) {
+export default function BeautifulTab({ children, activeTab, setActiveTab }: { children: ReactNode, activeTab: string, setActiveTab: (tab: string) => void }) {
 
 
     return (
