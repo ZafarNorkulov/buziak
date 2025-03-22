@@ -7,7 +7,7 @@ import banner from "@/assets/images/home-phone.png"
 
 const page = () => {
     return (
-        <div className="relative h-screen bg-top bg-no-repeat bg-cover" style={{ backgroundImage: `url(${bg.src})` }}>
+        <div className="relative min-h-screen bg-top bg-no-repeat bg-cover" style={{ backgroundImage: `url(${bg.src})` }}>
             <div className="max-container">
 
                 <Image src={logo} className="max-h-[110px]" alt="" />
