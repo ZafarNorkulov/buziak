@@ -28,6 +28,7 @@ const SignUp = () => {
 
                     <PhoneInput
                         country={"pl"}
+                        onlyCountries={['pl']}
                         value={phone}
                         onChange={(phone) => setPhone(phone)}
                         inputStyle={{
