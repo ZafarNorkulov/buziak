@@ -19,7 +19,7 @@ import Footer from "@/components/footer";
 
 export default function Home() {
   return (
-    <section className="home min-h-[calc(100vh-88px)] bg-top bg-no-repeat bg-cover pt-[14px]" style={{ backgroundImage: `url(${bg.src})` }}>
+    <section className="home min-h-[calc(100vh-76px)] bg-top bg-no-repeat bg-cover pt-[14px]" style={{ backgroundImage: `url(${bg.src})` }}>
       <div className="max-container">
 
         <div className="flex items-center justify-between">
