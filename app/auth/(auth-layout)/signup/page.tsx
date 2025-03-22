@@ -91,7 +91,7 @@ const SignUp = () => {
                 <AuthButton>Register</AuthButton>
 
             </Form>
-            <div className="flex flex-col gap-4 mt-4">
+            <div className="flex flex-col gap-4 my-4">
                 <div className="flex w-max mx-auto gap-9">
                     <button
                         className="w-[52px] h-[52px] flex justify-center items-center rounded-full bg-white"
