@@ -7,7 +7,7 @@ import ChatItem from '@/components/chat-comonents/chatItem';
 const Chat = () => {
     return (
         <section
-            className="h-full relative"
+            className="h-full relative pt-5"
 
         >
             <div className="max-container !h-full" >

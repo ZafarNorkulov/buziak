@@ -49,11 +49,11 @@ const ChatById = () => {
 
     return (
         <section
-            className="h-full "
+            className="h-full relative"
         >
-            <div className="max-container relative">
+            <div className="max-container ">
                 {/* header */}
-                <div className='fixed  top-5 left-4 right-4 flex gap-4 items-center'>
+                <div className='fixed  top-0 left-4 right-4 flex gap-4 items-center py-2'>
 
                     <div className='w-[50px] h-[50px] rounded-full overflow-hidden'>
                         <Image src={noImage} className='w-full h-full ' alt='avatar' />
@@ -75,7 +75,7 @@ const ChatById = () => {
 
                 {/* Body */}
 
-                <div className='absolute top-[50px] left-0 right-0 bottom-[138px] flex flex-col gap-2 w-full h-[calc(100vh-220px)] py-5 px-[10px] overflow-y-auto chat-scroll'>
+                <div className='absolute top-[66px] left-0 right-0 bottom-[154px] flex flex-col gap-2 w-full h-[calc(100vh-232px)] py-5 px-[10px] overflow-y-auto chat-scroll'>
                     <ChatBubble sendTime='19:44' message='Hi, Good moring, Dr Anastasya' is_read={true} senderType='sender' />
                     <ChatBubble sendTime='19:44' message={user} is_read={true} senderType='receiver' />
                     <ChatBubble sendTime='19:44' message='I have problems with my hands, which have been hurting lately.' is_read={true} senderType='receiver' />
@@ -92,7 +92,7 @@ const ChatById = () => {
 
                 {/* Footer */}
 
-                <div className='fixed bottom-[88px] left-1.5 right-5 flex items-center bg-[#100308]'>
+                <div className='fixed bottom-[88px] left-0 right-0 py-2 pl-1.5 pr-5 flex items-center bg-[#100308]'>
                     <label htmlFor='file' className='w-[50px] h-[50px]  flex items-center justify-center rounded-xl bg-darkgray '>
                         <input type="file" id='file' className='hidden' />
                         <Image src={fileIcon} width={20} height={20} alt='' />
