@@ -7,7 +7,7 @@ export default function ScreenCheck({ children }: { children: React.ReactNode })
 
 
     if (width > 480) {
-        return <div className="text-center text-lg p-5" >📱 This website is for mobile devices only.</div>;
+        return <div className="text-center text-lg p-5 text-black" >📱 This website is for mobile devices only.</div>;
     }
 
     return <>{children}</>;

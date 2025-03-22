@@ -18,7 +18,7 @@ const page = () => {
                 </p>
                 <div className="flex flex-col gap-5 mt-5">
                     <AuthButton redirect="/auth/signup">Register</AuthButton>
-                    <AuthButton disabled={true} redirect='/auth/signin'>Login</AuthButton>
+                    <AuthButton redirect='/auth/signin'>Login</AuthButton>
                 </div>
             </div>
         </div>
