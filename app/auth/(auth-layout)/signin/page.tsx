@@ -10,7 +10,7 @@ import AppleIcon from "@/assets/icons/apple.svg";
 const SignIn = () => {
 
     return (
-        <section className="signin h-full">
+        <section className="signin h-[calc(100vh-40px)]">
             <div className='flex flex-col justify-between h-[calc(100%-80px)]'>
                 <div className='flex flex-col gap-[64px]'>
 
