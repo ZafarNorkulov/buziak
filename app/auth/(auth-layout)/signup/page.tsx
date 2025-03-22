@@ -27,7 +27,7 @@ const SignUp = () => {
                     </Form.Item>
 
                     <PhoneInput
-                        country={"uz"}
+                        country={"pl"}
                         value={phone}
                         onChange={(phone) => setPhone(phone)}
                         inputStyle={{
