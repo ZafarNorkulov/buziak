@@ -16,6 +16,7 @@ import { EffectCards } from "swiper/modules";
 import PulseIcon from "@/components/custom-components/pulseIcon";
 import GradientButton from "@/components/custom-components/buttons/gradient-button";
 import Footer from "@/components/footer";
+import { signOut } from "next-auth/react";
 
 export default function Home() {
   return (
@@ -73,7 +74,7 @@ export default function Home() {
         <div className="w-max mx-auto flex gap-4 mt-4" >
           <div className="w-14 h-14 flex items-center justify-center rounded-full cursor-pointer" style={{
             background: "linear-gradient(160.84deg, #2E92FF 12.89%, #7D9FC4 83.44%)"
-          }}>
+          }} onClick={() => signOut()}>
             <Image src={xIcon} alt="xicon" />
           </div>
           <div className="w-16 h-15 flex items-center justify-center rounded-full cursor-pointer" style={{
