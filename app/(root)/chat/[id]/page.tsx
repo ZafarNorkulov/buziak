@@ -92,7 +92,7 @@ const ChatById = () => {
 
                 {/* Footer */}
 
-                <div className='fixed bottom-[88px] left-1.5 right-5 flex items-center'>
+                <div className='fixed bottom-[88px] left-1.5 right-5 flex items-center bg-[#100308]'>
                     <label htmlFor='file' className='w-[50px] h-[50px]  flex items-center justify-center rounded-xl bg-darkgray '>
                         <input type="file" id='file' className='hidden' />
                         <Image src={fileIcon} width={20} height={20} alt='' />
