@@ -76,6 +76,9 @@ body {
   line-height: 140%;
   letter-spacing: 0.3px;
 }
+.ant-segmented-item-label {
+  font-family: "Urbanist";
+}
 
 .signup-segment .ant-segmented-thumb-motion-appear {
   background-color: #546fff !important;
@@ -105,6 +108,14 @@ body {
 }
 .signup-segment.girl .ant-segmented-item-selected {
   background-color: #ff63bb !important;
+}
+
+/* Role Modal  */
+.role-modal .ant-segmented {
+  background: transparent !important;
+}
+.role-modal .ant-segmented-item-label {
+  color: #fff;
 }
 
 /* Footer Icons */
@@ -188,4 +199,10 @@ body {
   width: 18px;
   height: 18px;
   box-shadow: none !important;
+}
+.ant-input-affix-wrapper:focus {
+  border: none !important;
+}
+.ant-input-affix-wrapper:focus-within {
+  border: none !important;
 }

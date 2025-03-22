@@ -1,7 +1,9 @@
 
 import { ReactNode } from 'react';
 
-export default function BeautifulTab({ children, activeTab, setActiveTab }: { children: ReactNode, activeTab: string, setActiveTab: (tab: string) => void }) {
+interface ITabProps { children: ReactNode, activeTab: string, setActiveTab: (tab: string) => void, }
+
+export default function LikesTab({ children, activeTab, setActiveTab, }: ITabProps) {
 
 
     return (
@@ -9,13 +11,14 @@ export default function BeautifulTab({ children, activeTab, setActiveTab }: { ch
             {/* Tabs */}
             <div className="flex w-full justify-center gap-1.5 ">
                 <button
-                    className={` p-2 pb-3 text-center border-b-2 border-white text-lg font-medium leading-[120%] font-jakarta ${activeTab === 'tab1' ? '  text-white' : ' text-white/50 '}`}
+                    className={`p-2 pb-3 text-center border-b-2 border-white text-lg font-medium leading-[120%] font-jakarta ${activeTab === 'tab1' ? '  text-white' : ' text-white/50 '}`}
                     onClick={() => setActiveTab('tab1')}
                 >
+
                     Lubię cię
                 </button>
                 <button
-                    className={` py-3 text-center border-b-2 border-white text-lg font-medium leading-[120%] font-jakarta  ${activeTab === 'tab2' ? '  text-white' : ' text-white/50'}`}
+                    className={`p-2 py-3 text-center border-b-2 border-white text-lg font-medium leading-[120%] font-jakarta  ${activeTab === 'tab2' ? '  text-white' : ' text-white/50'}`}
                     onClick={() => setActiveTab('tab2')}
                 >
                     Odwiedzający

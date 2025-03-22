@@ -1,7 +1,7 @@
 import React from 'react'
 import { Badge } from 'antd';
-import SearchInput from '@/components/chat-comonents/searchInput';
-import ChatItem from '@/components/chat-comonents/chatItem';
+import SearchInput from '@/components/chat/searchInput';
+import ChatItem from '@/components/chat/chatItem';
 
 
 const Chat = () => {
@@ -11,7 +11,7 @@ const Chat = () => {
 
         >
             <div className="max-container !h-full" >
-                <div className='fixed top-5 left-4 right-5 z-20'>
+                <div className='fixed top-5 left-4 right-5 pb-2 z-20 '>
 
                     <SearchInput />
                     <div className='w-full flex justify-between mt-4'>
@@ -34,7 +34,7 @@ const Chat = () => {
 
 
                 {/* ChatList */}
-                <div className='flex flex-col absolute z-10 w-[calc(100%-32px)] h-[calc(100vh-250px)] top-[116px] bottom-0 gap-4 pb-1 overflow-auto chat-scroll'>
+                <div className='flex flex-col absolute z-10 w-[calc(100%-32px)] h-[calc(100vh-188px)] top-[124px] bottom-0 gap-4 pb-1 overflow-auto chat-scroll'>
                     <ChatItem />
                     <ChatItem />
                     <ChatItem />

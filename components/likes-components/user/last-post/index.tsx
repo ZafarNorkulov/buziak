@@ -2,6 +2,7 @@ import React from 'react'
 import documentTextIcon from "@/assets/icons/document-text.svg"
 import Image from 'next/image'
 import PostBubble from '@/components/post-bubble.tsx'
+import registerGirl from "@/assets/icons/register-girl.svg"
 
 
 const LastPost = () => {
@@ -11,7 +12,8 @@ const LastPost = () => {
                 <Image src={documentTextIcon} alt='document icon' />
                 <span className='text-white70 font-jakarta'>Последний твит</span>
             </div>
-            <PostBubble />
+            <PostBubble full_name='Alisa Purpleson' galochka={registerGirl} likes_count={27} time='32 min' postImage={null} text='Текст который напишет пользователь у себя в профиле. Текст который напишет пользователь у себя в профиле. Текст который напишет пользователь у себя в профиле. Текст который напишет пользователь у себя в профиле. ' />
+            {/* When user has no posts */}
             {/* <div className='h-[100px] w-full flex justify-center'>
 
                 <p className='text-sm leading-[120%] font-jakarta text-white70'>Пользователь еще не оставил постов...</p>
