@@ -1,9 +1,8 @@
 
-import { ReactNode } from 'react';
 
-interface ITabProps { children: ReactNode, activeTab: string, setActiveTab: (tab: string) => void, }
+interface ITabProps { activeTab: string, setActiveTab: (tab: string) => void, }
 
-export default function LikesTab({ children, activeTab, setActiveTab, }: ITabProps) {
+export default function LikesTab({ activeTab, setActiveTab, }: ITabProps) {
 
 
     return (
@@ -26,14 +25,7 @@ export default function LikesTab({ children, activeTab, setActiveTab, }: ITabPro
             </div>
 
             {/* Tab Content */}
-            <div className=" mt-9">
-                {/* Tab Content */}
-                <div >
-                    {children}
-                </div>
-
-
-            </div>
+           
         </div>
     );
 }
