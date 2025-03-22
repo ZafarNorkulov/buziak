@@ -6,13 +6,11 @@ export async function middleware(req: NextRequest) {
   const token = await getToken({ req, secret: process.env.AUTH_SECRET });
   const { pathname } = req.nextUrl;
 
-  // Agar token bo'lmasa va /auth sahifasida bo'lmasa -> authga yubor
-  if (!token && !pathname.startsWith("/auth")) {
+  if (pathname === "/" && !token) {
     return NextResponse.redirect(new URL("/auth", req.url));
   }
 
-  // Agar token bo'lsa va auth sahifasiga o'tmoqchi bo'lsa -> bosh sahifaga yubor
-  if (token && pathname.startsWith("/auth")) {
+  if (pathname.includes("/auth") && token) {
     return NextResponse.redirect(new URL("/", req.url));
   }
 
@@ -20,5 +18,5 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"], // Faqat kerakli route'larda ishlasin
+  matcher: ["/", "/auth/:path*"],
 };
