@@ -13,7 +13,7 @@ const Footer = () => {
                     key={idx}
                     className={`flex-1 h-full flex items-center justify-center cursor-pointer footer-icon ${pathname === icon.location || pathname.startsWith(`/${icon.location}`) ? "active" : ""}`}
                 >
-                    <Link href={`${icon.location}`}>
+                    <Link href={`/${icon.location}`}>
                         {icon.svg}
                     </Link>
                 </div>
@@ -62,7 +62,7 @@ export const footerIcons: IFooterIconProps[] = [
             <path d="M20.5 12H15.5C15.224 12 15 12.224 15 12.5C15 12.776 15.224 13 15.5 13H20.5C20.776 13 21 12.776 21 12.5C21 12.224 20.776 12 20.5 12Z" fill="#675B78" />
         </svg>
         ,
-        location: "/posts",
+        location: "posts",
         alt: "Posts"
     },
     {
@@ -86,7 +86,7 @@ export const footerIcons: IFooterIconProps[] = [
             <path d="M7.785 14.56C5.365 16.18 5.365 18.82 7.785 20.43C10.535 22.27 15.045 22.27 17.795 20.43C20.215 18.81 20.215 16.17 17.795 14.56C15.055 12.73 10.545 12.73 7.785 14.56Z" fill="#675B78" />
         </svg>
         ,
-        location: "/profile",
+        location: "profile",
         alt: "profile"
     },
 ]

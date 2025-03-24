@@ -4,7 +4,7 @@ import PostsComponent from '@/components/posts'
 
 const PostsPage = () => {
     return (
-        <div className='min-h-[calc(100vh-80px)] bg-top bg-no-repeat bg-cover pt-5' style={{ backgroundImage: `url(${bg.src})` }}>
+        <div className='min-h-[calc(100vh-80px)] pb-[80px] bg-top bg-no-repeat bg-cover pt-5' style={{ backgroundImage: `url(${bg.src})` }}>
             <PostsComponent />
         </div>
     )
