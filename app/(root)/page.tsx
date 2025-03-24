@@ -17,6 +17,7 @@ import PulseIcon from "@/components/custom-components/pulseIcon";
 import GradientButton from "@/components/custom-components/buttons/gradient-button";
 import Footer from "@/components/footer";
 import { signOut } from "next-auth/react";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -27,9 +28,9 @@ export default function Home() {
 
           <div className="w-10 h-10"></div>
           <h1 className="text-lg leading-[30px] font-semibold text-white">Buziak</h1>
-          <div className="w-10 h-10 flex items-center justify-center bg-white/10 rounded-full">
+          <Link href="/posts/notifications" className="w-10 h-10 flex items-center justify-center bg-white/10 rounded-full">
             <Image src={Bell} alt="Bell Icon" />
-          </div>
+          </Link>
         </div>
 
 

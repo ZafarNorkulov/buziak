@@ -1,9 +1,10 @@
+import Notifications from '@/components/posts/notifications'
 import React from 'react'
 
-const Notifications = () => {
+const Page = () => {
   return (
-    <div>Notifications</div>
+    <Notifications />
   )
 }
 
-export default Notifications
+export default Page

@@ -32,10 +32,10 @@ const ProfileComponent = () => {
                             <Image src={settings} width={20} height={20} alt='settings' />
                         </Link>
                     </div>
-                    <div className='w-10 h-10 flex items-center justify-center bg-white/10 px-2 py-3 rounded-full'>
+                    <Link href={"/posts/notifications"} className='w-10 h-10 flex items-center justify-center bg-white/10 px-2 py-3 rounded-full'>
                         <Image src={Bell} alt='ringbell' />
 
-                    </div>
+                    </Link>
                 </div>
 
                 <div className='flex items-center justify-between mx-6 '>
