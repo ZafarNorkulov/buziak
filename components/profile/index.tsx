@@ -1,4 +1,5 @@
-import React from 'react'
+"use client"
+import React, { useState } from 'react'
 import tokenIcon from "@/assets/icons/token.svg"
 import Image from 'next/image'
 import avatar from "@/assets/images/Avatar.png"
@@ -9,11 +10,11 @@ import heartIcon from "@/assets/icons/heart.svg"
 import editIcon from "@/assets/icons/edit.svg"
 import unregister from "@/assets/icons/unregister-user.svg"
 import Link from 'next/link'
-import PostBubble from '../post-bubble.tsx'
-import documentTextIcon from "@/assets/icons/document-text.svg"
+import InfoModal from './infoModal'
 
 
 const ProfileComponent = () => {
+    const [open, setOpen] = useState(false)
 
 
     return (
@@ -42,12 +43,13 @@ const ProfileComponent = () => {
                     <div>
                         <p className='text-xs tracking-[1px] text-gray'>Warszawa</p>
                     </div>
-                    <div className='flex gap-2 -translate-x-1/4'>
-                        <GradientButton className='flex gap-1 h-[26px]'>
+                    <div className='relative z-20 flex gap-2 -translate-x-1/4'>
+                        <GradientButton className='flex gap-1 h-[26px]' onClick={() => setOpen(true)}>
                             <Image src={heartIcon} alt='heart' width={10} height={10} />
                             <p className='text-[8px] leading-[120%] font-semibold font-jakarta'>Ресторан</p>
                         </GradientButton>
                         <Image src={editIcon} width={15} height={15} alt='edit' />
+
                     </div>
                     <div></div>
                 </div>
@@ -63,11 +65,7 @@ const ProfileComponent = () => {
                     <Image src={editIcon} width={15} height={15} className='absolute right-4 bottom-4' alt='edit' />
                 </div>
             </div>
-            <div className="max-container flex flex-col gap-5 items-center !px-[11px]">
-
-                <Image src={documentTextIcon} alt='document icon' />
-                <PostBubble full_name='Alisa Purpleson' galochka={unregister} likes_count={27} time='32 min' postImage={null} text='Текст который напишет пользователь у себя в профиле. Текст который напишет пользователь у себя в профиле. Текст который напишет пользователь у себя в профиле. Текст который напишет пользователь у себя в профиле. ' />
-            </div>
+                <InfoModal open={open} setOpen={setOpen} />
 
         </section>
     )

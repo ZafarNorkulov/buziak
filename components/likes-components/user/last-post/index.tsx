@@ -1,7 +1,7 @@
 import React from 'react'
 import documentTextIcon from "@/assets/icons/document-text.svg"
 import Image from 'next/image'
-import PostBubble from '@/components/post-bubble.tsx'
+import PostBubble from '@/components/post-bubble'
 import registerGirl from "@/assets/icons/register-girl.svg"
 
 

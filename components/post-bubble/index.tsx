@@ -103,7 +103,7 @@ const PostBubble = ({ full_name, galochka, text, postImage, likes_count, time }:
                             <span className='text-xs text-pink tracking-[1px]'>{likes_count}</span>
                         </div>
                     )}
-                    <Link href={"/chat/1"} className='flex items-center justify-center bg-[#FFD7F9] rounded-2xl px-2'>
+                    <Link href={"#"} className='flex items-center justify-center bg-[#FFD7F9] rounded-2xl px-2'>
                         <Image src={chatIconPink} alt='more' />
                     </Link>
                 </div>

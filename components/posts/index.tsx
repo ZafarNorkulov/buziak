@@ -5,7 +5,7 @@ import settings from "@/assets/icons/settings.svg"
 import fileIcon from "@/assets/icons/file-dark.svg"
 import tokenIcon from "@/assets/icons/token.svg"
 import { Input } from 'antd';
-import PostBubble from '../post-bubble.tsx';
+import PostBubble from '../post-bubble/index.jsx';
 import unregisterUser from "@/assets/icons/unregister-user.svg"
 import chatuser from "@/assets/images/chat-user.png"
 import RoleModal from '@/components/posts/sub/modal';
