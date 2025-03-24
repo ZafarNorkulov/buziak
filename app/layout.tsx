@@ -18,9 +18,9 @@ export default function RootLayout({
     <html lang="en">
       <body
       >
-        {/* <ScreenCheck> */}
+        <ScreenCheck>
           {children}
-        {/* </ScreenCheck> */}
+        </ScreenCheck>
       </body>
     </html>
   );
