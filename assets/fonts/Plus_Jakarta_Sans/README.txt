@@ -7,26 +7,26 @@ Plus Jakarta Sans is a variable font with this axis:
   wght
 
 This means all the styles are contained in these files:
-  Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.ttf
-  Plus_Jakarta_Sans/PlusJakartaSans-Italic-VariableFont_wght.ttf
+  PlusJakartaSans-VariableFont_wght.ttf
+  PlusJakartaSans-Italic-VariableFont_wght.ttf
 
 If your app fully supports variable fonts, you can now pick intermediate styles
 that aren’t available as static fonts. Not all apps support variable fonts, and
 in those cases you can use the static font files for Plus Jakarta Sans:
-  Plus_Jakarta_Sans/static/PlusJakartaSans-ExtraLight.ttf
-  Plus_Jakarta_Sans/static/PlusJakartaSans-Light.ttf
-  Plus_Jakarta_Sans/static/PlusJakartaSans-Regular.ttf
-  Plus_Jakarta_Sans/static/PlusJakartaSans-Medium.ttf
-  Plus_Jakarta_Sans/static/PlusJakartaSans-SemiBold.ttf
-  Plus_Jakarta_Sans/static/PlusJakartaSans-Bold.ttf
-  Plus_Jakarta_Sans/static/PlusJakartaSans-ExtraBold.ttf
-  Plus_Jakarta_Sans/static/PlusJakartaSans-ExtraLightItalic.ttf
-  Plus_Jakarta_Sans/static/PlusJakartaSans-LightItalic.ttf
-  Plus_Jakarta_Sans/static/PlusJakartaSans-Italic.ttf
-  Plus_Jakarta_Sans/static/PlusJakartaSans-MediumItalic.ttf
-  Plus_Jakarta_Sans/static/PlusJakartaSans-SemiBoldItalic.ttf
-  Plus_Jakarta_Sans/static/PlusJakartaSans-BoldItalic.ttf
-  Plus_Jakarta_Sans/static/PlusJakartaSans-ExtraBoldItalic.ttf
+  static/PlusJakartaSans-ExtraLight.ttf
+  static/PlusJakartaSans-Light.ttf
+  static/PlusJakartaSans-Regular.ttf
+  static/PlusJakartaSans-Medium.ttf
+  static/PlusJakartaSans-SemiBold.ttf
+  static/PlusJakartaSans-Bold.ttf
+  static/PlusJakartaSans-ExtraBold.ttf
+  static/PlusJakartaSans-ExtraLightItalic.ttf
+  static/PlusJakartaSans-LightItalic.ttf
+  static/PlusJakartaSans-Italic.ttf
+  static/PlusJakartaSans-MediumItalic.ttf
+  static/PlusJakartaSans-SemiBoldItalic.ttf
+  static/PlusJakartaSans-BoldItalic.ttf
+  static/PlusJakartaSans-ExtraBoldItalic.ttf
 
 Get started
 -----------
