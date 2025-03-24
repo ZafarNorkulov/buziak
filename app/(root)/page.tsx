@@ -20,7 +20,7 @@ import { signOut } from "next-auth/react";
 
 export default function Home() {
   return (
-    <section className="home min-h-[calc(100vh-88px)] w-full overflow-hidden bg-top bg-no-repeat bg-cover pt-[14px]" style={{ backgroundImage: `url(${bg.src})` }}>
+    <section className="home h-[calc(100vh-88px)] w-full overflow-hidden bg-top bg-no-repeat bg-cover pt-[14px]" style={{ backgroundImage: `url(${bg.src})` }}>
       <div className="max-container">
 
         <div className="flex items-center justify-between">
