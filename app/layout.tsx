@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-// import ScreenCheck from "@/components/screen-check";
+import ScreenCheck from "@/components/screen-check";
 
 export const metadata: Metadata = {
   title: "Buziak",

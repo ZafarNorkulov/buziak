@@ -14,6 +14,8 @@ import ChatBubble from '@/components/chatBubble'
 import user from "@/assets/images/chat-user.png"
 import ConfirmModal from '@/components/custom-components/modal/confirmModal'
 import ChatFooter from '@/components/footer/chatFooter'
+import GradientButton from '@/components/custom-components/buttons/gradient-button'
+import tokenIcon from "@/assets/icons/token.svg"
 
 const ChatById = () => {
     const [isOpenModal, setIsOpenModal] = React.useState(false)
@@ -73,22 +75,41 @@ const ChatById = () => {
                     </div>
                 </div>
 
+
                 {/* Body */}
+                {true ? (
 
-                <div className='absolute top-[66px] left-0 right-0 bottom-[154px] flex flex-col gap-2 w-full h-[calc(100vh-232px)] py-5 px-[10px] overflow-y-auto chat-scroll'>
-                    <ChatBubble sendTime='19:44' message='Hi, Good moring, Dr Anastasya' is_read={true} senderType='sender' />
-                    <ChatBubble sendTime='19:44' message={user} is_read={true} senderType='receiver' />
-                    <ChatBubble sendTime='19:44' message='I have problems with my hands, which have been hurting lately.' is_read={true} senderType='receiver' />
+                    <div className='absolute top-[66px] left-0 right-0 bottom-[154px] flex flex-col gap-2 w-full h-[calc(100vh-232px)] py-5 px-[10px] overflow-y-auto chat-scroll'>
+                        <ChatBubble sendTime='19:44' message='Hi, Good moring, Dr Anastasya' is_read={true} senderType='sender' />
+                        <ChatBubble sendTime='19:44' message={user} is_read={true} senderType='receiver' />
+                        <ChatBubble sendTime='19:44' message='I have problems with my hands, which have been hurting lately.' is_read={true} senderType='receiver' />
 
-                    <ChatBubble sendTime='19:44' message='Hello' is_read={true} senderType='receiver' />
-                    <ChatBubble sendTime='19:44' message='Hello' is_read={true} senderType='receiver' />
-                    <ChatBubble sendTime='19:44' message='Hello' is_read={true} senderType='receiver' />
-                    <ChatBubble sendTime='19:44' message='Hi, Good moring, Dr Anastasya' is_read={true} senderType='sender' />
-                    <ChatBubble sendTime='19:44' message='Hi, Good moring, Dr Anastasya' is_read={true} senderType='sender' />
-                    <ChatBubble sendTime='19:44' message='Hello' is_read={true} senderType='receiver' />
-                    <ChatBubble sendTime='19:44' message='Hello' is_read={true} senderType='receiver' />
-                    <ChatBubble sendTime='19:44' message='Hello' is_read={true} senderType='receiver' />
-                </div>
+                        <ChatBubble sendTime='19:44' message='Hello' is_read={true} senderType='receiver' />
+                        <ChatBubble sendTime='19:44' message='Hello' is_read={true} senderType='receiver' />
+                        <ChatBubble sendTime='19:44' message='Hello' is_read={true} senderType='receiver' />
+                        <ChatBubble sendTime='19:44' message='Hi, Good moring, Dr Anastasya' is_read={true} senderType='sender' />
+                        <ChatBubble sendTime='19:44' message='Hi, Good moring, Dr Anastasya' is_read={true} senderType='sender' />
+                        <ChatBubble sendTime='19:44' message='Hello' is_read={true} senderType='receiver' />
+                        <ChatBubble sendTime='19:44' message='Hello' is_read={true} senderType='receiver' />
+                        <ChatBubble sendTime='19:44' message='Hello' is_read={true} senderType='receiver' />
+                    </div>
+                ) : (
+
+                    <div className='fixed bottom-[154px] left-8 right-8 flex flex-col items-center justify-center gap-4 pb-6 pt-3'>
+                        <p className='text-xs leading-[150%] -tracking-[3%] text-center text-white/60 font-poppins'>
+                            Вы находитесь у этого пользователя в заявках, но вы можете не ждать ответа и написать без принятия запроса
+                        </p>
+                        <GradientButton className='px-11 h-10'>
+                            <p className='text-base font-semibold leading-[120%] align-middle font-jakarta '>Вне очереди</p>
+                            <div className='flex gap-3 pl-3'>
+                                <Image src={tokenIcon} width={22} height={15} alt='like' />
+                                <span className='text-base font-medium leading-[120%] text-white font-jakarta text-shadow'> 100</span>
+                            </div>
+
+                        </GradientButton>
+                    </div>
+                )}
+
 
                 {/* Footer */}
                 <ChatFooter />
