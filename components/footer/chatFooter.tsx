@@ -1,7 +1,8 @@
 import React from 'react'
 import Image from 'next/image'
 import fileIcon from "@/assets/icons/file.svg"
-import micIcon from "@/assets/icons/mic.svg"
+// import micIcon from "@/assets/icons/mic.svg"
+import senIcon from "@/assets/icons/send.svg"
 
 const ChatFooter = () => {
     return (
@@ -15,7 +16,7 @@ const ChatFooter = () => {
                 <input type="text" className='w-full  h-[50px] rounded-[10px] bg-darkgray px-4 !outline-0 !border-0  placeholder:text-white' placeholder='Type a message...' />
             </div>
             <div className='w-10 h-10 flex items-center justify-center ml-4 bg-[#9D3670] rounded-full'>
-                <Image src={micIcon} width={22} height={32} alt='' />
+                <Image src={senIcon} width={22} height={32} alt='' />
             </div>
         </div>
     )

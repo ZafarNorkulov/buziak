@@ -54,12 +54,14 @@ const ProfileComponent = () => {
                     </div>
                     <div></div>
                 </div>
-                <div className='flex items-center gap-1.5 w-max mx-auto translate-x-1/6 '>
+                <div className='flex items-center gap-1.5 w-max mx-auto translate-x-1/6 mt-2'>
                     <h3 className='text-xl leading-[120%] font-medium font-jakarta'>Alisa, 25</h3>
-                    <Image src={unregister} width={25} height={25} alt='galochka' />
+                    <Link href={"/profile/verification"}>
+                        <Image src={unregister} width={25} height={25} alt='galochka' />
+                    </Link>
                 </div>
 
-                <div className='w-full px-6 py-2 rounded-4xl relative bg-[#675B78]'>
+                <div className='w-full px-6 py-2 rounded-4xl relative mt-2 bg-[#675B78]'>
                     <p className='text-sm leading-[120%] font-jakarta text-white70 text-shadow'>
                         Текст который напишет пользователь у себя в профиле. Текст который напишет пользователь у себя в профиле. Текст который напишет пользователь у себя в профиле. Текст который напишет пользователь у себя в профиле.
                     </p>
