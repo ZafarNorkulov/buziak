@@ -5,9 +5,6 @@ export async function middleware(req: NextRequest) {
   const token = req.cookies.get("access_token")?.value;
   const { pathname } = req.nextUrl;
 
-  console.log("Token:", token);
-  console.log("Pathname:", pathname);
-
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api/auth") ||

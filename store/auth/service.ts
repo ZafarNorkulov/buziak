@@ -66,7 +66,7 @@ export const refreshToken = async (): Promise<void> => {
 
     if (refresh_token) {
       const response = await instance<{ access: string }>({
-        url: "auth/jwt/refresh",
+        url: "/token/refresh",
         method: "POST",
         data: { refresh: refresh_token },
       });
