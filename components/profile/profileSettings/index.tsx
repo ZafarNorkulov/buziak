@@ -3,6 +3,7 @@ import Image from 'next/image'
 import BackButton from '../../custom-components/buttons/back'
 import noImage from "@/assets/images/profile-avatar.png"
 import communicationIcon from "@/assets/icons/communcation.svg"
+import SettingsForm from './form'
 
 const ProfileSettings = () => {
     return (
@@ -22,8 +23,8 @@ const ProfileSettings = () => {
                         <Image src={communicationIcon} alt='' />
                     </div>
                 </div>
+                <SettingsForm />
 
-                
             </div>
         </section>
     )

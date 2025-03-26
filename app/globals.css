@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Doppio+One&display=swap");
 @import "tailwindcss";
 @import "../styles/fonts.css";
 @import "../styles/custom-tailwind.css";
@@ -197,6 +201,20 @@ body {
   box-shadow: none !important;
 }
 
+/* Profile form */
+.profile-form input {
+  width: 100%;
+  height: 66px;
+  font-family: "Doppio One";
+}
+
+
+
+.profile-form input:focus-visible {
+  border: none;
+  outline: none;
+}
+
 /*  */
 .ant-badge-count {
   width: 18px;
@@ -209,4 +227,3 @@ body {
 .ant-input-affix-wrapper:focus-within {
   border: none !important;
 }
-

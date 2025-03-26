@@ -1,6 +1,8 @@
 "use client";
 import React, { useEffect, useRef } from 'react'
-
+import modalBg from "@/assets/images/profile-modal-bg.png"
+import GradientButton from '../custom-components/buttons/gradient-button';
+import Image from 'next/image';
 const InfoModal = ({ open, setOpen }: { open: boolean, setOpen: React.Dispatch<React.SetStateAction<boolean>> }) => {
     const modalRef = useRef<HTMLDivElement | null>(null)
 
@@ -20,13 +22,34 @@ const InfoModal = ({ open, setOpen }: { open: boolean, setOpen: React.Dispatch<R
         };
     }, [open, setOpen]);
     return (
-        <div className={`fixed role-modal inset-0 bg-black/80 flex items-center justify-center z-[10] transition-all ${open ? "scale-100" : "scale-0"}`}>
-            <div ref={modalRef} className="relative w-[300px] px-4 py-5 rounded-xl flex flex-col items-center justify-center gap-2 border-2 border-[#AE4983]" style={{ background: "linear-gradient(0deg, #6B3353, #6B3353)", boxShadow: "0px -14px 0px 0px #6B3353 inset" }}>a
+        <div className={`fixed role-modal inset-0 bg-black/80 flex items-center  justify-center z-[10] transition-all ${open ? "scale-100" : "scale-0"}`}>
+            <div ref={modalRef} className="w-[300px] px-4 py-5 -translate-y-[45%] rounded-xl gap-2 overflow-hidden">
 
+                {/* Background rasm orqa fon */}
+                <div className='w-full rounded-xl overflow-hidden min-h-fit'>
+                    <Image
+                        src={modalBg}
+                        alt="Modal Background"
+                        fill
+                        className="object-fill w-full z-0"
+                    />
 
-                <div className="absolute left-1/2 top-0"></div>
+                    {/* Kontent - rasm ustida */}
+                    <div className="relative z-10 flex flex-wrap gap-2">
+                        <GradientButton>Ресторан</GradientButton>
+                        <GradientButton>Без обязательств</GradientButton>
+                        <GradientButton>Все серьезно</GradientButton>
+                        <GradientButton>Вирт</GradientButton>
+                        <GradientButton>Клуб</GradientButton>
+                    </div>
+                </div>
+                <div className='mt-10'>
+
+                    afsdsdf
+                </div>
             </div>
-        </div >
+        </div>
+
     )
 }
 

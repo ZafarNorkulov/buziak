@@ -20,6 +20,7 @@ const ProfileComponent = () => {
     return (
         <section className='flex flex-col gap-5'>
             <div className='max-container flex flex-col gap-2 !px-[18px]'>
+
                 <div className='flex items-start justify-between '>
 
                     <div className='w-max flex gap-1 bg-white/10 px-2 py-3 rounded-full'>
@@ -65,7 +66,7 @@ const ProfileComponent = () => {
                     <Image src={editIcon} width={15} height={15} className='absolute right-4 bottom-4' alt='edit' />
                 </div>
             </div>
-                <InfoModal open={open} setOpen={setOpen} />
+            <InfoModal open={open} setOpen={setOpen} />
 
         </section>
     )

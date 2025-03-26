@@ -6,9 +6,10 @@ import PostBubble from '@/components/post-bubble'
 import Image from 'next/image'
 
 
+
 const Profile = () => {
     return (
-        <div className='h-screen'>
+        <div className='h-[calc(100vh-20px)]'>
             <ProfileComponent />
             <div className="max-container flex flex-col gap-5 items-center !px-[11px] !mt-5">
 
