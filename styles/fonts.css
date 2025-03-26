@@ -40,49 +40,6 @@
     format("woff2");
 }
 
-/* urbanist */
-/* 
-@font-face {
-  font-display: swap;
-  font-family: "Urbanist";
-  font-style: normal;
-  font-weight: 300;
-  src: url("../assets/fonts/Urbanist/static/Urbanist-Light.woff2")
-    format("woff2");
-}
-@font-face {
-  font-display: swap;
-  font-family: "Urbanist";
-  font-style: normal;
-  font-weight: 400;
-  src: url("../assets/fonts/Urbanist/static/Urbanist-Regular.woff2")
-    format("woff2");
-}
-@font-face {
-  font-display: swap;
-  font-family: "Urbanist";
-  font-style: normal;
-  font-weight: 500;
-  src: url("../assets/fonts/Urbanist/static/Urbanist-Medium.woff2")
-    format("woff2");
-}
-@font-face {
-  font-display: swap;
-  font-family: "Urbanist";
-  font-style: normal;
-  font-weight: 600;
-  src: url("../assets/fonts/Urbanist/static/Urbanist-SemiBold.woff2")
-    format("woff2");
-}
-@font-face {
-  font-display: swap;
-  font-family: "Urbanist";
-  font-style: normal;
-  font-weight: 700;
-  src: url("../assets/fonts/Urbanist/static/Urbanist-Bold.woff2")
-    format("woff2");
-} */
-
 /* rubik-mono-one-regular - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */

@@ -23,10 +23,10 @@ const ProfileComponent = () => {
 
                 <div className='flex items-start justify-between '>
 
-                    <div className='w-max flex gap-1 bg-white/10 px-2 py-3 rounded-full'>
+                    <Link href={"/profile/balance"} className='w-max flex gap-1 bg-white/10 px-2 py-3 rounded-full'>
                         <Image src={tokenIcon} alt='token' />
                         <p className='text-base leading-[120%] font-medium font-jakarta text-shadow'>999</p>
-                    </div>
+                    </Link>
                     <div className='relative mt-6'>
                         <Image src={avatar} width={160} height={160} alt='avatar' />
                         <Link href={"/profile/settings"} className='absolute top-4 -right-2 w-10 h-10 flex items-center justify-center rounded-full bg-[#42152d]'>
