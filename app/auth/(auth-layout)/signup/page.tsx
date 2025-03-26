@@ -9,19 +9,78 @@ import "react-phone-input-2/lib/style.css";
 import GoogleIcon from "@/assets/icons/Google.svg";
 import AppleIcon from "@/assets/icons/apple.svg";
 import { signIn, useSession } from "next-auth/react";
+import instance from "@/config/axios.config";
+import Cookies from "js-cookie"
+import { useRouter } from "next/navigation";
+
+
+interface IForm {
+    username: string,
+    first_name: string,
+    email: string,
+    gender: number,
+    password: string,
+    confirm_password: string
+}
 
 const SignUp = () => {
     const [phone, setPhone] = useState("");
-    const [gender, setGender] = useState("Man");
+    const [gender, setGender] = useState<number>(1);
+    const [form] = Form.useForm()
 
-    const { data: session } = useSession();
-    console.log(session)
+
+    const router = useRouter()
+    const { data: session } = useSession()
+    if (session && session?.accessToken) {
+        Cookies.set("access_token", session.accessToken)
+        router.push("/")
+    }
+
+
+    const register = async (values: IForm) => {
+
+        const data = { ...values, username: phone, gender: gender, confirm_password: values.password }
+
+        try {
+
+            const response = await instance.post("/register/", data, {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            if (response.status === 200) {
+                localStorage.setItem("access_token", response?.data?.access);
+                localStorage.setItem("refresh_token", response?.data?.refresh);
+                Cookies.set("access_token", response?.data?.access, { expires: 7 })
+                form.resetFields()
+                setPhone("");
+                setGender(1);
+                router.push("/")
+
+            }
+        } catch (error: unknown) {
+            if (error instanceof Error) {
+                console.log(error.message);
+            } else {
+                console.log("Unexpected error occurred");
+            }
+        }
+    };
+
+
     return (
         <section className="signup">
             <h1 className="auth-title">Sign Up</h1>
-            <Form size="large" className="flex flex-col gap-4 !mt-5" onFinish={(e) => console.log(e)}>
+            <Form size="large" form={form} className="flex flex-col gap-4 !mt-5" onFinish={register}
+                initialValues={{
+                    first_name: "",
+                    email: "",
+                    password: "",
+                    gender: gender
+                }}
+            >
                 <div className="flex flex-col gap-12">
-                    <Form.Item name="full_name"
+                    <Form.Item name="first_name"
                         rules={[{ required: true, message: 'Пожалуйста, введите ваше полное имя!' }]}>
                         <Input placeholder="Enter full name" className="h-12" />
                     </Form.Item>
@@ -64,16 +123,19 @@ const SignUp = () => {
                     }}
                 >
                     <Form.Item name="gender" rules={[{ required: true, message: 'Пожалуйста, выберите пол!' }]}>
-                        <Segmented<string>
+                        <Segmented<number>
                             size="large"
-                            options={["Man", "Girl"]}
+                            options={[
+                                { label: "Man", value: 1 },
+                                { label: "Girl", value: 2 },
+                            ]}
                             value={gender}
                             onChange={(value) => {
                                 setGender(value);
                             }}
                             block
                             shape="round"
-                            className={`signup-segment ${gender === "Girl" && "girl"} flex text-white font-urbanist`}
+                            className={`signup-segment ${gender === 2 && "girl"} flex text-white font-urbanist`}
                         />
                     </Form.Item>
                 </ConfigProvider>

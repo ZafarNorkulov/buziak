@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ScreenCheck from "@/components/screen-check";
+import ReduxProvider from "@/providers/reduxProvider";
 
 export const metadata: Metadata = {
   title: "Buziak",
@@ -18,9 +19,11 @@ export default function RootLayout({
     <html lang="en">
       <body
       >
-        <ScreenCheck>
-          {children}
-        </ScreenCheck>
+        <ReduxProvider>
+          <ScreenCheck>
+            {children}
+          </ScreenCheck>
+        </ReduxProvider>
       </body>
     </html>
   );
