@@ -11,7 +11,7 @@ export interface IProfile {
   description: string;
   email: string;
   gender: IGender;
-  user_photo: IUserPhoto;
+  user_photo: IUserPhoto[];
   status: IProfileStatus;
 }
 

@@ -1,24 +1,35 @@
 import React from 'react'
 import plusIcon from "@/assets/icons/plus.svg"
 import Image from 'next/image'
+// import useGetData from '@/hooks/useGetData'
 
-const PhotoCard = () => {
+const PhotoCard = ({ id, image }: { id: number, image: string }) => {
+
+    // const { data: photo } = useGetData({
+    //     queryKey: ['get-gallery'],
+    //     url: `/profile/photo/${id}`
+    // })
+    console.log(id)
     return (
-        <div className='col-span-4 relative h-[143px] bg-[#675B78] rounded-4xl overflow-hidden'>
+        <div className='col-span-4 relative bg-[#675B78] w-[113px] h-[135px] rounded-4xl  transition-all ease-in'>
+            {image && <Image src={image} fill alt='gallery photo' />}
 
             {/* Icon */}
-            <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex justify-center w-[22px] h-[22px] border-[3px] border-white rounded-full bg-pink z-20'>
+            <button className={`absolute ${image ? "right-0 bottom-0 bg-[#3C3C3C] rotate-45" : "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-pink"}   flex justify-center w-[22px] h-[22px] border-[3px] border-white rounded-full  z-20`}>
 
+                {image ? (
 
-                <label htmlFor="file" className='flex justify-center'>
-                    <input type="file" name="file" id="file" className='hidden' />
+                    <label htmlFor="file" className='flex justify-center'>
+                        <input type="file" name="file" id="file" className='hidden' />
+                        <Image src={plusIcon} className='' width={11} height={11} alt='icon' />
+                    </label>
+                ) : (
                     <Image src={plusIcon} className='' width={11} height={11} alt='icon' />
-                </label>
+
+                )}
 
 
-            </div>
-
-
+            </button>
         </div>
     )
 }

@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
         protocol: "http",
         hostname: "206.189.14.25",
         port: "9090",
-        pathname: "/media/avatar/**",
+        pathname: "/media/**",
       },
     ],
   },
