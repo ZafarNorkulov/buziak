@@ -1,4 +1,33 @@
-export interface IFooterIcon {
-  svg: string;
-  alt: string;
+export interface IProfile {
+  id: number;
+  username: string;
+  first_name: string;
+  language: number;
+  has_profile_picture: boolean;
+  min_age: number;
+  max_age: number;
+  avatar: string;
+  birth_date: string;
+  description: string;
+  email: string;
+  gender: IGender;
+  user_photo: IUserPhoto;
+  status: IProfileStatus;
+}
+
+interface IProfileStatus {
+  id: number;
+  user: number;
+  photo: string;
+}
+
+interface IUserPhoto {
+  id: number;
+  user: number;
+  photo: string;
+}
+
+export interface IGender {
+  id: number;
+  name: string;
 }

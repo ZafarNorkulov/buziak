@@ -51,7 +51,7 @@ const SignUp = () => {
             if (response.status === 200) {
                 localStorage.setItem("access_token", response?.data?.access);
                 localStorage.setItem("refresh_token", response?.data?.refresh);
-                Cookies.set("access_token", response?.data?.access, { expires: 7 })
+                Cookies.set("access_token", response?.data?.access, { expires: 1 / 24 })
                 form.resetFields()
                 setPhone("");
                 setGender(1);

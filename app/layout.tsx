@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import ScreenCheck from "@/components/screen-check";
 import ReduxProvider from "@/providers/reduxProvider";
+import TanstackProvider from "@/providers/tanstackProvider";
 
 export const metadata: Metadata = {
   title: "Buziak",
@@ -20,9 +21,12 @@ export default function RootLayout({
       <body
       >
         <ReduxProvider>
-          <ScreenCheck>
-            {children}
-          </ScreenCheck>
+          <TanstackProvider>
+
+            <ScreenCheck>
+              {children}
+            </ScreenCheck>
+          </TanstackProvider>
         </ReduxProvider>
       </body>
     </html>

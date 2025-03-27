@@ -26,6 +26,10 @@ const SignInSlice = createSlice({
       localStorage.removeItem("refrsh_token");
       window.location.reload();
     },
+    setToken: (state, action: PayloadAction<string>) => {
+      state.access_token = action.payload;
+      localStorage.setItem("access_token", action.payload);
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(SignIn.pending, (state) => {

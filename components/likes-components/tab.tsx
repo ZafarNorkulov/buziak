@@ -24,8 +24,7 @@ export default function LikesTab({ activeTab, setActiveTab, }: ITabProps) {
                 </button>
             </div>
 
-            {/* Tab Content */}
-           
+
         </div>
     );
 }

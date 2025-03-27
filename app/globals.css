@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Doppio+One&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
 @import "tailwindcss";
 @import "../styles/fonts.css";
 @import "../styles/custom-tailwind.css";
@@ -215,6 +215,13 @@ body {
 .profile-form input:focus-visible {
   border: none;
   outline: none;
+}
+.profile-form p {
+  max-width: 140px;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 1px;
+  text-align: right;
 }
 
 /*  */

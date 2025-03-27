@@ -25,6 +25,7 @@ const Page = () => {
     const { data: session } = useSession()
     if (session && session?.accessToken) {
         Cookies.set("access_token", session.accessToken)
+        localStorage.setItem("access_token", session.accessToken)
         router.push("/")
     }
     useEffect(() => {

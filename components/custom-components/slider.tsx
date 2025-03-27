@@ -3,10 +3,11 @@ import React, { useState } from "react";
 
 interface CustomSliderProps {
     onChange?: (range: [number, number]) => void;
+    value: number;
 }
 
-const CustomSlider: React.FC<CustomSliderProps> = ({ onChange }) => {
-    const [maxVal, setMaxVal] = useState<number>(70);
+const CustomSlider: React.FC<CustomSliderProps> = ({ onChange, value }) => {
+    const [maxVal, setMaxVal] = useState<number>(value);
     const minVal = 18;
     const min = 18;
     const max = 99;
@@ -23,7 +24,6 @@ const CustomSlider: React.FC<CustomSliderProps> = ({ onChange }) => {
     return (
         <div className="w-full max-w-[500px] mx-auto">
             <div className="w-full flex items-center justify-center">
-
                 <span className="text-[#77838F] tracking-[1.67px] font-amaranth text-[30px]">{maxVal} lata</span>
             </div>
             <div className="flex items-center gap-4">
@@ -39,7 +39,7 @@ const CustomSlider: React.FC<CustomSliderProps> = ({ onChange }) => {
                         }}
                     ></div>
 
-                    {/* Boshlang'ich nuqta (harakatsiz) */}
+                    {/* Boshlang‘ich nuqta (harakatsiz) */}
                     <div className="absolute -top-0.5 -left-2 w-3 h-3 bg-[#F761B6] rounded-full"></div>
 
                     {/* Oxirgi nuqta (harakatsiz) */}
@@ -64,8 +64,6 @@ const CustomSlider: React.FC<CustomSliderProps> = ({ onChange }) => {
 
                 <span className="text-[#F761B6] tracking-[1.67px] font-amaranth text-[30px]">{max}</span>
             </div>
-
-
         </div>
     );
 };
