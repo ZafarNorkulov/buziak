@@ -135,7 +135,7 @@ const SignUp = () => {
                         <Segmented
                             size="large"
                             options={
-                                gender ? gender.slice(0, 2).map(item => ({ label: item.name, value: item.id })) : []
+                                gender && gender.length > 2 ? gender.slice(0, 2).map(item => ({ label: item.name, value: item.id })) : []
                             }
                             value={selectedGender}
                             onChange={(value) => {
