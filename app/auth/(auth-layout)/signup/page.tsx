@@ -3,7 +3,7 @@ import AuthButton from "@/components/custom-components/buttons/auth-button";
 import { Checkbox, ConfigProvider, Form, Input, Segmented } from "antd";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import GoogleIcon from "@/assets/icons/Google.svg";
@@ -44,7 +44,11 @@ const SignUp = () => {
         queryKey: ["gender"],
         url: "/gender/"
     })
-
+    useEffect(() => {
+        if (gender && gender.length > 0) {
+            setSelectedGender(gender[0].id); // Birinchi jinsni default qilib qo'yish
+        }
+    }, [gender]);
 
     const register = async (values: IForm) => {
 
@@ -85,7 +89,7 @@ const SignUp = () => {
                     first_name: "",
                     email: "",
                     password: "",
-                    gender: gender
+                    gender: selectedGender
                 }}
             >
                 <div className="flex flex-col gap-12">
