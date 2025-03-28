@@ -236,3 +236,8 @@ body {
 .ant-input-affix-wrapper:focus-within {
   border: none !important;
 }
+
+.mask-video {
+  mask-image: radial-gradient(circle, white 60%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle, white 60%, transparent 100%);
+}
