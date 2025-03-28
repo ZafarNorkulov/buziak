@@ -5,10 +5,11 @@ import BackButton from '../../custom-components/buttons/back'
 import noImage from "@/assets/images/profile-avatar.png"
 import communicationIcon from "@/assets/icons/communcation.svg"
 import Link from 'next/link'
-import useGetData from '@/hooks/useGetData'
 import instance from '@/config/axios.config'
 import CustomRangeSlider from '@/components/custom-components/slider'
-import { IProfile } from '@/types/data.models'
+import { useAppDispatch, useAppSelector } from '@/store'
+import { fetchUser } from '@/store/user'
+
 
 const ProfileSettings = () => {
     const [imagePreview, setImagePreview] = useState<File | null>(null);
@@ -16,18 +17,19 @@ const ProfileSettings = () => {
     const [sliderRange, setSliderRange] = useState<[number, number]>([18, 70]);
     const [isPhotoChecked, setIsPhotoChecked] = useState<boolean>(false);
 
-    const { data: profile, isLoading } = useGetData<IProfile>({
-        queryKey: ["profile"],
-        url: "/profile/",
-    });
+    const { user, isLoading } = useAppSelector(state => state.user)
+    const [description, setDescription] = useState<string>(user?.description || '');
+    const dispatch = useAppDispatch();
+
 
     useEffect(() => {
-        if (profile) {
-            setSliderRange([+profile.min_age, +profile.max_age]);
-            setIsPhotoChecked(profile.has_profile_picture ?? false);
-            setImageUrl(profile.avatar || null);
+        if (user) {
+            setSliderRange([+user.min_age, +user.max_age]);
+            setIsPhotoChecked(user.has_profile_picture ?? false);
+            setImageUrl(user.avatar || null);
+            setDescription(user.description);
         }
-    }, [profile]);
+    }, [user]);
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files?.[0];
@@ -40,12 +42,22 @@ const ProfileSettings = () => {
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const formData = new FormData(e.currentTarget);
+        const formData = new FormData();
 
-        // Append additional data
-        formData.append("min_age", String(sliderRange[0]));
-        formData.append("max_age", String(sliderRange[1]));
-        formData.append("has_profile_picture", String(isPhotoChecked));
+        const data = {
+            first_name: e.currentTarget.first_name.value.trim() || user?.first_name || "",
+            email: e.currentTarget.email.value.trim() || user?.email || "",
+            description: description.trim() || user?.description || "",
+            min_age: sliderRange[0] || user?.min_age || 18,
+            max_age: sliderRange[1] || user?.max_age || 70,
+            has_profile_picture: isPhotoChecked,
+            gender: user?.gender?.id || 1
+        };
+
+        // `data` obyektini FormData'ga o'tkazish
+        Object.entries(data).forEach(([key, value]) => {
+            formData.append(key, String(value));
+        });
 
         // Append image if uploaded
         if (imagePreview) {
@@ -61,6 +73,7 @@ const ProfileSettings = () => {
 
             if (response.status === 200) {
                 console.log("Profile updated successfully", response);
+                dispatch(fetchUser());
             }
         } catch (error) {
             console.error("Error updating profile:", error);
@@ -93,7 +106,7 @@ const ProfileSettings = () => {
                     <div className='flex flex-col items-center gap-2'>
                         <div className='w-[90px] h-[90px] relative overflow-hidden rounded-full border-[3px] border-white'>
                             <Image
-                                src={imageUrl || profile?.avatar || noImage}
+                                src={imageUrl || user?.avatar || noImage}
                                 alt='Profile Avatar'
                                 fill
                                 className='object-cover'
@@ -118,24 +131,32 @@ const ProfileSettings = () => {
                 <form className='profile-form' onSubmit={handleSubmit} onKeyDown={handleKeyDown}>
                     <label className='flex items-center justify-between border-b border-white'>
                         <input type="text" placeholder='User Name' name="first_name" />
-                        <p className='font-doppio'>{profile?.first_name}</p>
+                        <p className='font-doppio'>{user?.first_name}</p>
                     </label>
 
                     <label className='flex items-center justify-between border-b border-white'>
                         <input type="email" placeholder='Your Email' name="email" />
-                        <p className='font-doppio'>{profile?.email && maskInput(profile.email)}</p>
+                        <p className='font-doppio'>{user?.email && maskInput(user.email)}</p>
                     </label>
 
 
-                    <label htmlFor='date' className='flex  justify-between border-b pt-6 border-white'>
-                        <input type="date" name="date" className='hidden' />
+                    <label htmlFor='date' className='flex justify-between border-b pt-6 border-white cursor-pointer relative'>
+                        <input
+                            type="date"
+                            name="date"
+                            id="date"
+                            className='absolute inset-0 opacity-0 w-full h-full cursor-pointer'
+                            onChange={(e) => console.log(e.target.value)} // Sanani olish uchun
+                        />
                         <div className='h-[66px] text-[#77838F] font-doppio'>Date Of Birth</div>
-                        <p className='font-doppio'>{profile?.birth_date}</p>
+                        <p className='font-doppio mt-1'>{user?.birth_date || "Select a date"}</p>
                     </label>
 
                     <label className='w-full border-b border-white'>
                         <textarea
                             name="description"
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
                             className='w-full mt-6 focus-visible:border-none focus-visible:outline-0'
                             placeholder='Describe yourself...'
                         />
@@ -144,12 +165,12 @@ const ProfileSettings = () => {
                     <div className='flex justify-between w-full items-baseline pt-4 pb-[22px] border-b border-white'>
                         <p className='mt-1 text-[#77838F] text-sm tracking-[1px]'>Language</p>
                         <div className='flex justify-between items-center w-20 h-8 rounded-full bg-white/40 backdrop-blur-[20px]'>
-                            <input type="radio" name="language" defaultChecked={profile?.language === 1} value={1} id="lang-en" className="hidden peer/en" />
+                            <input type="radio" name="language" defaultChecked={user?.language === 1} value={1} id="lang-en" className="hidden peer/en" />
                             <label htmlFor="lang-en" className='cursor-pointer rounded-full w-[30px] h-full flex items-center justify-center bg-white/50 backdrop-blur-[10px] peer-checked/en:bg-white'>
                                 <p className='text-xs font-medium leading-[130%] text-[#1B1B1B] uppercase'>En</p>
                             </label>
                             :
-                            <input type="radio" name="language" defaultChecked={profile?.language === 2} value={2} id="lang-pl" className="hidden peer/pl" />
+                            <input type="radio" name="language" defaultChecked={user?.language === 2} value={2} id="lang-pl" className="hidden peer/pl" />
                             <label htmlFor="lang-pl" className='cursor-pointer rounded-full w-[30px] h-full flex items-center justify-center bg-white/50 backdrop-blur-[10px] peer-checked/pl:bg-white'>
                                 <p className='text-xs font-medium leading-[130%] text-[#1B1B1B] uppercase'>Pl</p>
                             </label>
@@ -166,7 +187,7 @@ const ProfileSettings = () => {
                             id="is_photo" />
                     </label>
 
-                    <CustomRangeSlider onChange={(range) => setSliderRange(range)} value={profile?.max_age ? +profile.max_age : 50} />
+                    <CustomRangeSlider onChange={(range) => setSliderRange(range)} value={user?.max_age ? +user.max_age : 50} />
 
                     <button type="submit" className="bg-[#675B78] px-4 py-2 mt-4 text-white rounded-2xl">Save Changes</button>
                 </form>

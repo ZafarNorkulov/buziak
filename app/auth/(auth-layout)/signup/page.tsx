@@ -12,6 +12,7 @@ import { signIn, useSession } from "next-auth/react";
 import instance from "@/config/axios.config";
 import Cookies from "js-cookie"
 import { useRouter } from "next/navigation";
+import useGetData from "@/hooks/useGetData";
 
 
 interface IForm {
@@ -25,7 +26,7 @@ interface IForm {
 
 const SignUp = () => {
     const [phone, setPhone] = useState("");
-    const [gender, setGender] = useState<number>(1);
+    const [selectedGender, setSelectedGender] = useState<number>(1)
     const [form] = Form.useForm()
 
 
@@ -35,11 +36,19 @@ const SignUp = () => {
         Cookies.set("access_token", session.accessToken)
         router.push("/")
     }
+    type TGender = {
+        id: number,
+        name: string
+    }
+    const { data: gender } = useGetData<TGender[]>({
+        queryKey: ["gender"],
+        url: "/gender/"
+    })
 
 
     const register = async (values: IForm) => {
 
-        const data = { ...values, username: phone, gender: gender, confirm_password: values.password }
+        const data = { ...values, username: phone, gender: selectedGender }
 
         try {
 
@@ -54,7 +63,7 @@ const SignUp = () => {
                 Cookies.set("access_token", response?.data?.access, { expires: 1 / 24 })
                 form.resetFields()
                 setPhone("");
-                setGender(1);
+                // setGender(1);
                 router.push("/")
 
             }
@@ -123,19 +132,18 @@ const SignUp = () => {
                     }}
                 >
                     <Form.Item name="gender" rules={[{ required: true, message: 'Пожалуйста, выберите пол!' }]}>
-                        <Segmented<number>
+                        <Segmented
                             size="large"
-                            options={[
-                                { label: "Man", value: 1 },
-                                { label: "Girl", value: 2 },
-                            ]}
-                            value={gender}
+                            options={
+                                gender ? gender.slice(0, 2).map(item => ({ label: item.name, value: item.id })) : []
+                            }
+                            value={selectedGender}
                             onChange={(value) => {
-                                setGender(value);
+                                setSelectedGender(value);
                             }}
                             block
                             shape="round"
-                            className={`signup-segment ${gender === 2 && "girl"} flex text-white font-urbanist`}
+                            className={`signup-segment ${gender?.find(item => item.id === selectedGender)?.name === "Girl" && "girl"} flex text-white font-urbanist`}
                         />
                     </Form.Item>
                 </ConfigProvider>

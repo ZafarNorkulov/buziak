@@ -15,11 +15,11 @@ const initialState: ProfileState = {
 };
 
 // Foydalanuvchi profilini olish uchun async thunk
-export const fetchProfile = createAsyncThunk<
+export const fetchUser = createAsyncThunk<
   IProfile,
   void,
   { rejectValue: string }
->("profile/fetchProfile", async (_, { rejectWithValue }) => {
+>("profile/fetchUser", async (_, { rejectWithValue }) => {
   try {
     const response = await instance.get<IProfile>("/profile/");
     return response.data;
@@ -40,16 +40,16 @@ const userSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchProfile.pending, (state) => {
+    builder.addCase(fetchUser.pending, (state) => {
       state.isLoading = true;
       state.status = "pending";
     });
-    builder.addCase(fetchProfile.fulfilled, (state, action) => {
+    builder.addCase(fetchUser.fulfilled, (state, action) => {
       state.isLoading = false;
       state.user = action.payload;
       state.status = "success";
     });
-    builder.addCase(fetchProfile.rejected, (state) => {
+    builder.addCase(fetchUser.rejected, (state) => {
       state.isLoading = false;
       state.status = "error";
     });

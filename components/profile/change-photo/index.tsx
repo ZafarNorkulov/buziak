@@ -1,21 +1,18 @@
 "use client"
-import React, { useEffect } from 'react'
+import React from 'react'
 import PhotoTab from './tab'
 import PhotoCard from './card';
-import { useAppDispatch, useAppSelector } from '@/store';
-import { fetchProfile } from '@/store/user';
+import { useAppSelector } from '@/store';
+
 
 
 
 const ChangePhotoComponent = () => {
 
     const [activeTab, setActiveTab] = React.useState('tab1');
-    const dispatch = useAppDispatch();
     const { user } = useAppSelector((state) => state.user);
 
-    useEffect(() => {
-        dispatch(fetchProfile()); // ✅ API-dan profilni yuklash
-    }, [dispatch]);
+
     console.log(user)
     return (
         <div className='relative '>

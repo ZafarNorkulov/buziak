@@ -10,32 +10,44 @@ const instance = axios.create();
 const onRequest = (
   config: InternalAxiosRequestConfig
 ): InternalAxiosRequestConfig => {
-  config.headers!.Accept = "application/json";
-  const access_token = localStorage.getItem("access_token") ?? "";
-  if (!config.url?.includes("auth/jwt/create")) {
+  if (config.headers) {
+    config.headers.Accept = "application/json";
+  }
+
+  const access_token = localStorage.getItem("access_token");
+
+  if (access_token && !config.url?.includes("/register")) {
     config.headers.Authorization = `Bearer ${access_token}`;
   }
+
+  console.log(
+    "Final Authorization Header:",
+    config.headers.Authorization || "No token"
+  );
+
   config.baseURL = process.env.NEXT_PUBLIC_BASE_URL;
   return config;
 };
+
 const onRequestError = async (error: AxiosError): Promise<AxiosError> => {
-  new ResponseError(error);
-  return Promise.reject(error);
+  console.error("Request Error:", error);
+  return Promise.reject(new ResponseError(error));
 };
-const onResponse = (response: AxiosResponse): AxiosResponse => {
-  return response;
-};
+
+const onResponse = (response: AxiosResponse): AxiosResponse => response;
+
 const onResponseError = (error: AxiosError): Promise<AxiosError> => {
   if (error.response?.status === 403) {
+    console.warn("403 Forbidden - Access Denied");
   }
 
   if (error.response?.status === 401) {
+    console.warn("401 Unauthorized - Clearing tokens...");
     localStorage.removeItem("access_token");
     localStorage.removeItem("refresh_token");
   }
 
-  new ResponseError(error);
-  return Promise.reject(error);
+  return Promise.reject(new ResponseError(error));
 };
 
 instance.interceptors.request.use(onRequest, onRequestError);

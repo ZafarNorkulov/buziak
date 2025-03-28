@@ -13,6 +13,7 @@ export interface IProfile {
   gender: IGender;
   user_photo: IUserPhoto[];
   status: IProfileStatus;
+  verified: boolean;
 }
 
 interface IProfileStatus {
