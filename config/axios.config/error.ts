@@ -39,7 +39,6 @@ export class ResponseError {
     }
   }
 
-  
   private 400(): void {
     if (
       JSON.parse(this.error?.request?.response)?.hasOwnProperty("detail") &&

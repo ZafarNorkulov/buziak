@@ -8,14 +8,22 @@ import Bell from "@/assets/icons/bell.svg"
 import GradientButton from '../custom-components/buttons/gradient-button'
 import heartIcon from "@/assets/icons/heart.svg"
 import editIcon from "@/assets/icons/edit.svg"
+import registerMan from "@/assets/icons/register-man.svg"
+import registerGirl from "@/assets/icons/register-girl.svg"
 import unregister from "@/assets/icons/unregister-user.svg"
 import Link from 'next/link'
 import InfoModal from './infoModal'
+import { useAppSelector } from '@/store'
 
 
 const ProfileComponent = () => {
     const [open, setOpen] = useState(false)
-
+    const { user } = useAppSelector(state => state.user)
+    const getAge = (birthdate: string) => {
+        const birthYear = new Date(birthdate).getFullYear();
+        const currentYear = new Date().getFullYear();
+        return currentYear - birthYear;
+    };
 
     return (
         <section className='flex flex-col gap-5'>
@@ -55,9 +63,20 @@ const ProfileComponent = () => {
                     <div></div>
                 </div>
                 <div className='flex items-center gap-1.5 w-max mx-auto translate-x-1/6 mt-2'>
-                    <h3 className='text-xl leading-[120%] font-medium font-jakarta'>Alisa, 25</h3>
+                    <h3 className='text-xl leading-[120%] font-medium font-jakarta'>{user?.first_name}, {user?.birth_date ? getAge(user.birth_date) : "N/A"}</h3>
                     <Link href={"/profile/verification"}>
-                        <Image src={unregister} width={25} height={25} alt='galochka' />
+                        <Image
+                            src={
+                                user?.verified
+                                    ? (user?.gender && user.gender.length > 0 && user.gender[0].name === "Girl"
+                                        ? registerGirl
+                                        : registerMan)
+                                    : unregister
+                            }
+                            width={25}
+                            height={25}
+                            alt="galochka"
+                        />
                     </Link>
                 </div>
 

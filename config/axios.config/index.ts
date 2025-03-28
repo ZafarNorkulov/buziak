@@ -20,11 +20,6 @@ const onRequest = (
     config.headers.Authorization = `Bearer ${access_token}`;
   }
 
-  console.log(
-    "Final Authorization Header:",
-    config.headers.Authorization || "No token"
-  );
-
   config.baseURL = process.env.NEXT_PUBLIC_BASE_URL;
   return config;
 };
