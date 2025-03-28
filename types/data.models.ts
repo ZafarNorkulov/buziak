@@ -12,14 +12,14 @@ export interface IProfile {
   email: string;
   gender: IGender[];
   user_photo: IUserPhoto[];
-  status: IProfileStatus;
+  status: IProfileStatus[];
   verified: boolean;
 }
 
 interface IProfileStatus {
   id: number;
-  user: number;
-  photo: string;
+  name: number;
+  icon: string;
 }
 
 export interface IUserPhoto {
@@ -32,3 +32,9 @@ export interface IGender {
   id: number;
   name: string;
 }
+
+export type TStatus = {
+  id: number;
+  name: string;
+  icon: string;
+};

@@ -13,17 +13,51 @@ import registerGirl from "@/assets/icons/register-girl.svg"
 import unregister from "@/assets/icons/unregister-user.svg"
 import Link from 'next/link'
 import InfoModal from './infoModal'
-import { useAppSelector } from '@/store'
+import { useAppDispatch, useAppSelector } from '@/store'
+import useGetData from '@/hooks/useGetData'
+import { TStatus } from '@/types/data.models'
+import instance from '@/config/axios.config'
+import { fetchUser } from '@/store/user'
 
 
 const ProfileComponent = () => {
     const [open, setOpen] = useState(false)
     const { user } = useAppSelector(state => state.user)
+    const dispatch = useAppDispatch()
+
+
     const getAge = (birthdate: string) => {
         const birthYear = new Date(birthdate).getFullYear();
         const currentYear = new Date().getFullYear();
         return currentYear - birthYear;
     };
+
+    const { data: status } = useGetData<TStatus[]>({
+        queryKey: ["status"],
+        url: "/profile/status/"
+    })
+
+    const changeStatus = async (selectedStatus: TStatus) => {
+        // const formData = new FormData();
+        // formData.append("status_id", String(selectedStatus.id));
+
+        try {
+            const response = await instance.put("/profile/status/update/", { status: selectedStatus.id }, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+            });
+
+            if (response.status === 200) {
+                console.log("Profile updated successfully", response);
+                dispatch(fetchUser())
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+
 
     return (
         <section className='flex flex-col gap-5'>
@@ -52,12 +86,26 @@ const ProfileComponent = () => {
                     <div>
                         <p className='text-xs tracking-[1px] text-gray'>Warszawa</p>
                     </div>
-                    <div className='relative z-20 flex gap-2 -translate-x-1/4'>
-                        <GradientButton className='flex gap-1 h-[26px]' onClick={() => setOpen(true)}>
-                            <Image src={heartIcon} alt='heart' width={10} height={10} />
-                            <p className='text-[8px] leading-[120%] font-semibold font-jakarta'>Ресторан</p>
-                        </GradientButton>
-                        <Image src={editIcon} width={15} height={15} alt='edit' />
+                    <div className='modal relative z-20 flex gap-2 -translate-x-1/4'>
+                        {user && user?.status.length > 0 ? (
+                            <>
+
+                                <GradientButton className='flex gap-1 h-[26px]'>
+
+                                    <Image src={user?.status[0]?.icon} alt='heart' width={10} height={10} />
+                                    <p className='text-[8px] leading-[120%] font-semibold font-jakarta'>{user?.status[0]?.name}</p>
+                                </GradientButton>
+                                <Image src={editIcon} width={15} height={15} onClick={() => setOpen(true)} alt='edit' />
+                            </>
+                        ) :
+                            (
+                                <>
+                                    <GradientButton className='flex gap-1 h-[26px]' onClick={() => setOpen(true)}>
+                                        <Image src={heartIcon} alt='heart' width={10} height={10} />
+                                        <p className='text-[8px] leading-[120%] font-semibold font-jakarta'>Ресторан</p>
+                                    </GradientButton>
+                                    <Image src={editIcon} width={15} height={15} alt='edit' /></>
+                            )}
 
                     </div>
                     <div></div>
@@ -87,7 +135,7 @@ const ProfileComponent = () => {
                     <Image src={editIcon} width={15} height={15} className='absolute right-4 bottom-4' alt='edit' />
                 </div>
             </div>
-            <InfoModal open={open} setOpen={setOpen} />
+            <InfoModal open={open} data={status ? status : []} setOpen={setOpen} onSelectStatus={changeStatus} />
 
         </section>
     )
