@@ -116,7 +116,7 @@ const ProfileComponent = () => {
                         <Image
                             src={
                                 user?.verified
-                                    ? (user?.gender && user.gender.length > 0 && user.gender[0].name === "Girl"
+                                    ? (user?.gender && user.gender.name === "Girl"
                                         ? registerGirl
                                         : registerMan)
                                     : unregister
