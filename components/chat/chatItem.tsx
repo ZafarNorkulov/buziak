@@ -6,7 +6,7 @@ import { Badge } from 'antd'
 import Link from 'next/link'
 
 const ChatItem = () => {
-    
+
     return (
         <Link href={'/chat/1'} className='w-full flex gap-4 cursor-pointer hover:bg-white/10 active:bg-white/10 py-1 px-2 rounded-lg'>
             <div className='avatar'>

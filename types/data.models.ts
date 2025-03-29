@@ -10,7 +10,7 @@ export interface IProfile {
   birth_date: string;
   description: string;
   email: string;
-  gender: IGender[];
+  gender: IGender;
   user_photo: IUserPhoto[];
   status: IProfileStatus[];
   verified: boolean;

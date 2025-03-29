@@ -110,7 +110,7 @@ const FaceDetector: React.FC = () => {
                             <video ref={videoRef} autoPlay playsInline className="w-full h-full object-cover rounded-full mask-video" />
                         ) : capturedImage ? (
                             <img src={capturedImage} className="w-full h-full object-cover rounded-full mask-video" alt="captured" />
-                        ) : user?.gender?.[0]?.name === "Girl" ? (
+                        ) : user?.gender?.name === "Girl" ? (
                             <Image src={defaultGirl} className="w-full h-full object-cover" alt="default" />
                         ) : <Image src={defaultMan} className='absolute w-[122px] h-[137px] z-0' alt='default' />}
                     </div>
