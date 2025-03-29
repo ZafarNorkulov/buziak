@@ -51,10 +51,9 @@ const ProfileSettings = () => {
             min_age: sliderRange[0] || user?.min_age || 18,
             max_age: sliderRange[1] || user?.max_age || 70,
             has_profile_picture: isPhotoChecked,
-            gender: user?.gender[0]?.id || 1
+            gender: user?.gender?.id || 1
         };
 
-        // `data` obyektini FormData'ga o'tkazish
         Object.entries(data).forEach(([key, value]) => {
             formData.append(key, String(value));
         });
