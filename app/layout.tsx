@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import "./globals.css";
 import ScreenCheck from "@/components/screen-check";
@@ -22,7 +23,6 @@ export default function RootLayout({
       >
         <ReduxProvider>
           <TanstackProvider>
-
             <ScreenCheck>
               {children}
             </ScreenCheck>

@@ -33,7 +33,7 @@ const LikedCard: React.FC<LikedCardProps> = ({ style, img, url }) => {
                     <h2 className='text-sm  font-medium text-white'>Full Name, 25</h2>
                     <Image src={galochka} width={15} height={15} className='object-cover' alt='galochka' />
                 </div>
-                <span className='text-xs text-white70'>Warszawa</span>
+                <span className='text-xs text-white/70'>Warszawa</span>
             </div>
 
 

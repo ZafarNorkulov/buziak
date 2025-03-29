@@ -15,7 +15,7 @@ const ForgotPassword = () => {
     const [form] = Form.useForm()
 
     const onFinish = async (values: IForm) => {
-        console.log(values)
+        // console.log(values)
         try {
 
             const response = await instance.post("/reset/password/", values, {
@@ -24,7 +24,7 @@ const ForgotPassword = () => {
                 }
             })
             if (response.status === 200) {
-                console.log(response)
+                // console.log(response)
                 form.resetFields()
                 router.push("/auth/forgot-password/send-request")
             }

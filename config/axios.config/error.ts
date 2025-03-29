@@ -2,6 +2,7 @@ import store from "@/store";
 import { AUTH_ACTIONS } from "@/store/auth";
 import { refreshToken } from "@/store/auth/service";
 import { AxiosError } from "axios";
+import Cookies from "js-cookie";
 
 export class ResponseError {
   error!: AxiosError;
@@ -61,6 +62,8 @@ export class ResponseError {
 
     if (String(this.error.request?.responseURL).includes("auth/jwt/refresh")) {
       localStorage.removeItem("access_token");
+      Cookies.remove("access_token");
+
       localStorage.removeItem("refresh_token");
       store.dispatch(AUTH_ACTIONS.signOut());
     } else {

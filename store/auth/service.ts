@@ -57,6 +57,7 @@ export const _signOut = async (): Promise<void> => {
   store.dispatch(AUTH_ACTIONS.signOut());
   localStorage.removeItem("access_token");
   localStorage.removeItem("refresh_token");
+  Cookies.remove("access_token");
   window.location.pathname = "/auth/signin";
 };
 
@@ -84,5 +85,6 @@ export const refreshToken = async (): Promise<void> => {
 
 export const logOut = async (): Promise<void> => {
   localStorage.removeItem("access_token");
+  Cookies.remove("access_token");
   localStorage.removeItem("refresh_token");
 };

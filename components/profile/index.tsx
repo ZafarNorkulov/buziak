@@ -129,10 +129,10 @@ const ProfileComponent = () => {
                 </div>
 
                 <div className='w-full px-6 py-2 rounded-4xl relative mt-2 bg-[#675B78]'>
-                    <p className='text-sm leading-[120%] font-jakarta text-white70 text-shadow'>
-                        Текст который напишет пользователь у себя в профиле. Текст который напишет пользователь у себя в профиле. Текст который напишет пользователь у себя в профиле. Текст который напишет пользователь у себя в профиле.
-                    </p>
-                    <Image src={editIcon} width={15} height={15} className='absolute right-4 bottom-4' alt='edit' />
+                    <textarea className='w-full text-sm leading-[120%] font-jakarta text-white/70 text-shadow focus-within:border-0 focus-within:outline-none' rows={6} value={"Текст который напишет пользователь у себя в профиле. Текст который напишет пользователь у себя в профиле. Текст который напишет пользователь у себя в профиле. Текст который напишет пользователь у себя в профиле."} />
+
+
+                    <Image src={editIcon} width={15} height={15} className='absolute right-3 bottom-3' alt='edit' />
                 </div>
             </div>
             <InfoModal open={open} data={status ? status : []} setOpen={setOpen} onSelectStatus={changeStatus} />

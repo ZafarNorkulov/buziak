@@ -4,6 +4,7 @@ import axios, {
   InternalAxiosRequestConfig,
 } from "axios";
 import { ResponseError } from "./error";
+import Cookies from "js-cookie";
 
 const instance = axios.create();
 
@@ -40,6 +41,7 @@ const onResponseError = (error: AxiosError): Promise<AxiosError> => {
     console.warn("401 Unauthorized - Clearing tokens...");
     localStorage.removeItem("access_token");
     localStorage.removeItem("refresh_token");
+    Cookies.remove("access_token");
   }
 
   return Promise.reject(new ResponseError(error));

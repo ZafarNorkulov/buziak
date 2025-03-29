@@ -4,9 +4,8 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "http",
-        hostname: "217.114.7.66",
-        port: "9080",
+        protocol: "https",
+        hostname: "api.skkamni.ru",
         pathname: "/media/**",
       },
     ],

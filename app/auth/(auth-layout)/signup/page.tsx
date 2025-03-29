@@ -9,7 +9,6 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import GoogleIcon from "@/assets/icons/Google.svg";
 import AppleIcon from "@/assets/icons/apple.svg";
-import { signIn, useSession } from "next-auth/react";
 import instance from "@/config/axios.config";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
@@ -30,16 +29,7 @@ const SignUp = () => {
     const [form] = Form.useForm();
 
     const router = useRouter();
-    const { data: session } = useSession();
 
-    // 🚀 Xatolikni tuzatish: session bo'lsa, `useEffect` ichida redirect qilish
-    useEffect(() => {
-        if (session?.accessToken) {
-            Cookies.set("access_token", session.accessToken);
-            localStorage.setItem("access_token", session.accessToken);
-            router.push("/");
-        }
-    }, [session, router]);
 
     type TGender = {
         id: number;
@@ -188,7 +178,7 @@ const SignUp = () => {
                 <div className="flex w-max mx-auto gap-9">
                     <button
                         className="w-[52px] h-[52px] flex justify-center items-center rounded-full bg-white"
-                        onClick={() => signIn("google")}
+
                     >
                         <Image src={GoogleIcon} width={24} height={24} alt="Google icon" />
                     </button>

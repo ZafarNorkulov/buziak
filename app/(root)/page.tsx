@@ -65,7 +65,7 @@ export default function Home() {
                 <h2 className="text-2xl font-medium leading-[120%] font-jakarta">Mateusz, 25</h2>
                 <Image src={galochka} width={25} height={25} alt="" />
               </div>
-              <p className="text-sm leading-[120%] font-jakarta tracking-[0] text-white70">Charyzmatyczny, pewny siebie i uwielbiający flirt. Jeśli lubisz napięcie i nutkę tajemnicy – pisz śmiało.</p>
+              <p className="text-sm leading-[120%] font-jakarta tracking-[0] text-white/70">Charyzmatyczny, pewny siebie i uwielbiający flirt. Jeśli lubisz napięcie i nutkę tajemnicy – pisz śmiało.</p>
             </div>
 
           </SwiperSlide>
