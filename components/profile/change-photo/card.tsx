@@ -13,7 +13,7 @@ const PhotoCard = ({
     id: number;
     image: string;
     edit?: boolean;
-    onUpload: () => void; // Rasm yuklanganda UI yangilash uchun
+    onUpload: () => void;
 }) => {
     const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files?.[0];
@@ -31,7 +31,7 @@ const PhotoCard = ({
 
             if (response.status === 201) {
                 console.log("Rasm muvaffaqiyatli yuklandi!", response.data);
-                await onUpload(); // ✅ Rasm yuklanganidan keyin qayta ma'lumotlarni olish
+                await onUpload(); //refetch
             }
         } catch (error: unknown) {
             if (error instanceof Error) {
@@ -48,7 +48,7 @@ const PhotoCard = ({
             const response = await instance.delete(`/profile/photo/${id}/`);
             if (response.status === 204) {
                 console.log("Rasm o‘chirildi!");
-                await onUpload(); // O‘chirganidan keyin UI yangilash
+                await onUpload(); // when removed ui refetch
             }
         } catch (error: unknown) {
             if (error instanceof Error) {
@@ -67,7 +67,7 @@ const PhotoCard = ({
                     className={`absolute ${image
                         ? "right-0 bottom-0 bg-[#3C3C3C] "
                         : "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-pink"
-                        } flex justify-center w-[22px] h-[22px] border-[3px] border-white rounded-full z-20`}
+                        }   grid place-items-center w-[26px] h-[26px] border-[2px] border-white rounded-full z-20`}
                 >
                     {!image ? (
                         <label htmlFor={`file-${id}`} className="flex justify-center">
