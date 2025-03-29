@@ -1,7 +1,5 @@
 "use client";
 import { useEffect } from "react";
-import Image from "next/image";
-import GoogleIcon from "@/assets/icons/Google.svg";
 import instance from "@/config/axios.config";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
@@ -37,7 +35,7 @@ const handleCredentialResponse = async (response: GoogleCredentialResponse, rout
 
         if (res.status === 200) {
             localStorage.setItem("access_token", res.data.access_token);
-            Cookies.set("access_token", res.data.access_token, { expires: 1 / 24 });
+            Cookies.set("access_token", res.data.access_token, { expires: 7 });
             router.push("/");
         }
     } catch (error) {
@@ -70,10 +68,13 @@ const GoogleLogin = () => {
                     ux_mode: "popup",
                 });
 
-                window.google.accounts.id.renderButton(
-                    document.getElementById("g_id_signin"),
-                    { theme: "outline", size: "large" }
-                );
+                // Element yuklangandan keyin render qilish
+                const buttonContainer = document.getElementById("g_id_signin");
+                if (buttonContainer) {
+                    window.google.accounts.id.renderButton(buttonContainer, { theme: "outline", size: "large" });
+                } else {
+                    setTimeout(initializeGoogleSignIn, 500); // 500ms kutish va yana urinib ko‘rish
+                }
             }
         };
 
@@ -81,10 +82,8 @@ const GoogleLogin = () => {
     }, [router]);
 
     return (
-        <div>
-            <button className="w-[52px] h-[52px] flex justify-center items-center rounded-full bg-white" id="g_id_signin">
-                <Image src={GoogleIcon} width={24} height={24} alt="Google icon" />
-            </button>
+        <div className="w-full h-[calc(100vh-60px)] flex items-center justify-center">
+            <div id="g_id_signin"></div> {/* Buttonni div ichida render qilish */}
         </div>
     );
 };

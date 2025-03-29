@@ -60,7 +60,7 @@ const SignUp = () => {
             if (response.status === 200) {
                 localStorage.setItem("access_token", response?.data?.access);
                 localStorage.setItem("refresh_token", response?.data?.refresh);
-                Cookies.set("access_token", response?.data?.access, { expires: 1 / 24 });
+                Cookies.set("access_token", response?.data?.access, { expires: 7 });
 
                 form.resetFields();
                 setPhone("");
@@ -176,12 +176,12 @@ const SignUp = () => {
 
             <div className="flex flex-col gap-4 my-4">
                 <div className="flex w-max mx-auto gap-9">
-                    <button
+                    <Link href={"/auth/signin/google"}
                         className="w-[52px] h-[52px] flex justify-center items-center rounded-full bg-white"
 
                     >
                         <Image src={GoogleIcon} width={24} height={24} alt="Google icon" />
-                    </button>
+                    </Link>
                     <button className="w-[52px] h-[52px] flex justify-center items-center rounded-full bg-white">
                         <Image src={AppleIcon} width={24} height={24} alt="Apple icon" />
                     </button>

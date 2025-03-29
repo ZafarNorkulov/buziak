@@ -8,7 +8,7 @@ import AppleIcon from "@/assets/icons/apple.svg";
 import { useAppDispatch } from "@/store";
 import SignIn from "@/store/auth/service";
 import { useRouter } from "next/navigation";
-import GoogleLogin from "@/components/google";
+import GoogleIcon from "@/assets/icons/Google.svg";
 
 interface IForm {
     username: string;
@@ -60,7 +60,9 @@ const Page = () => {
 
                 <div className="flex flex-col gap-6">
                     <div className="flex w-max mx-auto gap-9">
-                        <GoogleLogin />
+                        <button className="w-[52px] h-[52px] flex justify-center items-center rounded-full ">
+                            <Image src={GoogleIcon} width={24} height={24} alt="Google icon" />
+                        </button>
                         <button className="w-[52px] h-[52px] flex justify-center items-center rounded-full bg-white">
                             <Image src={AppleIcon} width={24} height={24} alt="Apple icon" />
                         </button>

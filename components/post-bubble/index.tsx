@@ -11,9 +11,11 @@ import BeatifulDropDown from '../custom-components/beautifulDropDown'
 import ConfirmModal from '../custom-components/modal/confirmModal'
 import blockIcon from "@/assets/icons/block.svg"
 import { usePathname } from 'next/navigation'
+import { useAppSelector } from '@/store'
+import noImage from "@/assets/images/noImage.png"
 
 interface IPostBubbleProps {
-    full_name: string,
+    full_name?: string,
     galochka: StaticImageData,
     text: ReactNode,
     likes_count: number,
@@ -21,12 +23,13 @@ interface IPostBubbleProps {
     postImage: StaticImageData | null
 }
 
-const PostBubble = ({ full_name, galochka, text, postImage, likes_count, time }: IPostBubbleProps) => {
+const PostBubble = ({ full_name = "", galochka, text, postImage, likes_count, time }: IPostBubbleProps) => {
 
     const [isOpenModal, setIsOpenModal] = React.useState(false)
     const [isOpenModal2, setIsOpenModal2] = React.useState(false)
     const pathname = usePathname()
     const isPostPage = pathname.startsWith('/post')
+    const { user } = useAppSelector(state => state.user)
 
     const items: MenuProps['items'] = [
         {
@@ -35,7 +38,7 @@ const PostBubble = ({ full_name, galochka, text, postImage, likes_count, time }:
                 <div className='flex items-center gap-3 ' onClick={() => setIsOpenModal2(true)}>
                     <Image src={blockIcon} width={24} height={24} alt='like' />
                     <span className='text-sm font-semibold leading-6 align-middle text-white font-urbanist'>
-                        Block Alisa
+                        Block {full_name}
                     </span>
 
                 </div>
@@ -60,8 +63,13 @@ const PostBubble = ({ full_name, galochka, text, postImage, likes_count, time }:
         <div className='w-full flex flex-col gap-1 p-3 rounded-b-xl rounded-tr-[20px] bg-[#9D3670]'>
             {/* PostBubble header */}
             <div className='flex gap-4'>
-                <div className='user-avatar w-[50px] h-[50px] rounded-full bg-[#D8D8D8] '>
-
+                <div className="relative w-[50px] h-[50px] rounded-full overflow-hidden">
+                    <Image
+                        src={user?.avatar ? user.avatar : noImage}
+                        alt="avatar"
+                        fill
+                        className="object-cover"
+                    />
                 </div>
 
                 <div className='w-[calc(100%-66px)] flex justify-between'>

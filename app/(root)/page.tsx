@@ -18,6 +18,7 @@ import GradientButton from "@/components/custom-components/buttons/gradient-butt
 import Footer from "@/components/footer";
 import Link from "next/link";
 
+
 export default function Home() {
   return (
     <section className="home h-[calc(100vh-88px)] w-full overflow-hidden bg-top bg-no-repeat bg-cover pt-[14px]" style={{ backgroundImage: `url(${bg.src})` }}>
