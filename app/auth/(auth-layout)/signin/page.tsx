@@ -60,9 +60,12 @@ const Page = () => {
 
                 <div className="flex flex-col gap-6">
                     <div className="flex w-max mx-auto gap-9">
-                        <button className="w-[52px] h-[52px] flex justify-center items-center rounded-full ">
+                        <Link href={"/auth/signin/google"}
+                            className="w-[52px] h-[52px] flex justify-center items-center rounded-full bg-white"
+
+                        >
                             <Image src={GoogleIcon} width={24} height={24} alt="Google icon" />
-                        </button>
+                        </Link>
                         <button className="w-[52px] h-[52px] flex justify-center items-center rounded-full bg-white">
                             <Image src={AppleIcon} width={24} height={24} alt="Apple icon" />
                         </button>
