@@ -59,7 +59,7 @@ const FaceDetector: React.FC = () => {
                 setCameraActive(false);
 
                 // **Gender asosida backend yo‘nalishini va request methodini aniqlash**
-                const isGirl = user?.gender?.[0]?.name === "Girl";
+                const isGirl = user?.gender?.name === "Girl";
                 const endpoint = isGirl
                     ? "/profile/verification/girl/"
                     : "/profile/verification/boy/";
